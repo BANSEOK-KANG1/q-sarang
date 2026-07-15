@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 큐사랑 · 재고·원장 관리 (목업)
 
-## Getting Started
+염색방·제왕충초 **재고**와 **조직(이사 → 본부장 → 원장)** 관리 목업.  
+브랜드: **보라색 큐사랑**. 모바일·웹 반응형.
 
-First, run the development server:
+## 조직
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+이사 → 본부장 → 원장(매장·주문)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| 역할 | 기능 |
+|------|------|
+| 이사 | 본부장/원장 관리, 원장 승인, 사진 프로필, 재고·주문, 연락 답변 |
+| 본부장 | 산하 원장 등록(이사 승인 필요), 염색방 사진 승인, 주문 조회 |
+| 원장 | 주문, 염색방 대표사진 등록(본부장 승인), 상급자 연락 |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 샘플 계정
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 역할 | 아이디 | 비밀번호 |
+|------|--------|----------|
+| 이사 | `director` | `director123` |
+| 본부장 | `manager1` | `manager123` |
+| 원장 | `owner1` | `owner123` |
 
-## Learn More
+승인 대기 원장 시드: `owner4` (로그인 불가 until 이사 승인)
 
-To learn more about Next.js, take a look at the following resources:
+## DB 방향 (참고)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Cafe24 쇼핑몰 MySQL**: 커스텀 Next 앱 메인 DB로는 비추천 (원격 접속 제한, 쇼핑몰 용도).
+- 권장: **Supabase / Neon PostgreSQL** (+ 사진은 R2/S3/Cloudinary), 앱은 Vercel 등.
+- 나중에 Cafe24 쇼핑몰과 **주문 연동**만 API/웹훅으로 붙이는 편이 안전.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 실행
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install && npm run dev
+```
