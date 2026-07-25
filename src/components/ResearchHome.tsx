@@ -6,7 +6,15 @@ import { useMemo, useState } from "react";
 import { evidenceGuide, papers } from "@/lib/research-data";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 
-const categories = ["전체", "면역", "피로·운동", "항산화·에너지", "대사"];
+const categories = [
+  "전체",
+  "면역",
+  "피로·운동",
+  "항산화·에너지",
+  "대사·흡수",
+  "수면·사람 연구",
+  "순환·혈소판",
+];
 
 export default function ResearchHome() {
   const [activeCategory, setActiveCategory] = useState("전체");
@@ -36,6 +44,9 @@ export default function ResearchHome() {
   }, [activeCategory, query]);
 
   const featured = papers[0];
+  const humanStudyCount = papers.filter(
+    (paper) => paper.evidenceCode === "B",
+  ).length;
 
   return (
     <div className="research-site">
@@ -56,19 +67,19 @@ export default function ResearchHome() {
               설명하다.
             </h1>
             <p className="research-hero__description">
-              PubMed·Europe PMC 논문을 연구 설계와 근거 수준부터 차근히 해석합니다.
+              코디세핀의 가능성을 다룬 논문을 연구 설계와 근거 수준부터 쉽게 해석합니다.
               <br className="desktop-only" />
-              제품 효능으로 과장하지 않고, 사람들 앞에서 설명할 수 있을 때까지.
+              긍정적 결과와 한계, 효과가 확인되지 않은 연구까지 함께 보여드립니다.
             </p>
             <div className="research-hero__actions">
               <Link href="#library" className="research-button research-button--dark">
                 연구 데이터베이스 <span aria-hidden="true">↓</span>
               </Link>
               <Link
-                href={`/paper/${featured.slug}/presentation`}
+                href="#reading-guide"
                 className="research-button research-button--text"
               >
-                발표 모드 미리보기 <span aria-hidden="true">↗</span>
+                처음 읽는 분께 <span aria-hidden="true">↓</span>
               </Link>
             </div>
           </div>
@@ -89,15 +100,15 @@ export default function ResearchHome() {
         </section>
 
         <section className="research-statement">
-          <p>한 편의 논문이 발표 자료가 되기까지</p>
+          <p>복잡한 논문을 누구나 이해할 수 있는 공개 자료로</p>
           <div>
             <span>연구 질문</span>
             <i>→</i>
-            <span>근거 수준</span>
+            <span>연구 대상</span>
             <i>→</i>
-            <span>결과와 한계</span>
+            <span>관찰 결과</span>
             <i>→</i>
-            <span className="highlight">5장 발표</span>
+            <span className="highlight">쉬운 해석</span>
           </div>
         </section>
 
@@ -140,9 +151,9 @@ export default function ResearchHome() {
             </p>
           </div>
           <div className="evidence-dashboard__stats">
-            <div><strong>18</strong><span>수집 논문</span><small>자동 갱신 데이터 기준</small></div>
-            <div><strong>4</strong><span>핵심 주제</span><small>면역 · 피로 · 항산화 · 대사</small></div>
-            <div><strong>5</strong><span>발표 준비</span><small>슬라이드로 바로 열기</small></div>
+            <div><strong>{papers.length}</strong><span>공개 논문 요약</span><small>PubMed 원문 링크 포함</small></div>
+            <div><strong>{humanStudyCount}</strong><span>사람 대상 연구</span><small>무작위 연구 별도 표시</small></div>
+            <div><strong>100%</strong><span>근거 단계 표시</span><small>사람 · 동물 · 세포 · 리뷰</small></div>
           </div>
           <div className="evidence-guide">
             {evidenceGuide.map((item) => (
@@ -245,41 +256,41 @@ export default function ResearchHome() {
           )}
         </section>
 
-        <section className="presentation-section" id="presentation">
-          <div className="presentation-section__copy">
-              <p className="research-section-label">04 · FROM PAPER TO STAGE</p>
-            <h2>읽은 내용을<br />발표의 언어로 바꾸세요.</h2>
+        <section className="public-reading-guide" id="reading-guide">
+          <div className="public-reading-guide__copy">
+            <p className="research-section-label">04 · HOW TO READ</p>
+            <h2>논문을 처음 봐도<br />세 가지만 확인하세요.</h2>
             <p>
-              논문 정리의 마지막은 ‘효과가 있다’는 문장이 아니라,
-              어떤 연구에서 무엇을 관찰했는지 설명하는 것입니다.
+              제목의 ‘효능’보다 연구 대상을 먼저 보면 과장을 피할 수 있습니다.
+              모든 요약은 같은 순서로 정리해 쉽게 비교할 수 있게 만들었습니다.
             </p>
-            <ol className="presentation-steps">
-              <li><span>01</span><strong>연구 질문</strong><p>이 논문이 실제로 답한 질문만 남깁니다.</p></li>
-              <li><span>02</span><strong>근거의 범위</strong><p>사람·동물·세포·리뷰를 먼저 밝힙니다.</p></li>
-              <li><span>03</span><strong>결과와 한계</strong><p>관찰된 것과 말할 수 없는 것을 함께 보여줍니다.</p></li>
+            <ol className="public-reading-guide__steps">
+              <li><span>01</span><strong>무엇을 연구했나요?</strong><p>제왕충초 원물, 추출물, 코디세핀은 서로 다른 재료입니다.</p></li>
+              <li><span>02</span><strong>누구에게 시험했나요?</strong><p>사람, 동물, 세포 중 어디에서 관찰한 결과인지 먼저 봅니다.</p></li>
+              <li><span>03</span><strong>어디까지 말할 수 있나요?</strong><p>관찰된 결과와 아직 확인되지 않은 내용을 함께 읽습니다.</p></li>
             </ol>
-            <Link href={`/paper/${featured.slug}/presentation`} className="research-button research-button--light">
-              발표 모드 열기 <span aria-hidden="true">↗</span>
+            <Link href="/paper/cordyceps-sleep-negative-trial" className="research-button research-button--light">
+              가장 쉬운 사람 연구 보기 <span aria-hidden="true">↗</span>
             </Link>
           </div>
 
-          <div className="presentation-preview">
-            <div className="presentation-preview__chrome">
-              <span /><span /><span />
-              <p>O-LOVE · 발표 노트</p>
-            </div>
-            <div className="presentation-preview__slide">
-              <div className="preview-slide__number">01 / 05</div>
-              <p className="preview-slide__label">THE CORE QUESTION</p>
-              <h3>제왕충초 면역 연구는<br />어디까지 말할 수 있을까?</h3>
-              <div className="preview-slide__diagram">
-                <span>REVIEW</span>
-                <i>+</i>
-                <span>ANIMAL</span>
-                <i>+</i>
-                <span>HUMAN</span>
+          <div className="public-reading-card">
+            <p className="public-reading-card__label">한눈에 읽는 근거 카드</p>
+            <div className="public-reading-card__grade">
+              <strong>B</strong>
+              <div>
+                <span>사람 대상 무작위 연구</span>
+                <small>직접 관찰했지만 표본·제형·기간을 함께 확인</small>
               </div>
-              <p className="preview-slide__note">Space 또는 → 키로 넘기기</p>
+            </div>
+            <div className="public-reading-card__question">
+              <span>이 연구가 답한 질문</span>
+              <h3>제왕충초를 더했을 때<br />수면 지표가 달라졌을까?</h3>
+              <p>결과: 위약군보다 뚜렷한 개선은 확인되지 않았습니다.</p>
+            </div>
+            <div className="public-reading-card__boundary">
+              <span>여기까지만 말할 수 있어요</span>
+              <p>특정 환자군의 6주 연구 결과이며, 모든 수면 문제나 다른 제형에 일반화할 수 없습니다.</p>
             </div>
           </div>
         </section>

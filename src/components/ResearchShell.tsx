@@ -20,7 +20,7 @@ export function ResearchHeader({ compact = false }: { compact?: boolean }) {
       <nav className="research-nav" aria-label="주요 메뉴">
         <Link href="/#library">연구 데이터베이스</Link>
         <Link href="/#evidence">근거 수준</Link>
-        <Link href="/#presentation">발표 노트</Link>
+        <Link href="/#reading-guide">쉽게 읽는 법</Link>
       </nav>
       <Link href="/#library" className="research-header__cta">
         읽기 시작
@@ -42,7 +42,7 @@ export function ResearchFooter() {
       </p>
       <div className="research-footer__links">
         <Link href="/#library">아카이브</Link>
-        <Link href="/#presentation">발표 노트</Link>
+        <Link href="/#reading-guide">쉽게 읽는 법</Link>
         <Link href="/login">관리자</Link>
       </div>
     </footer>

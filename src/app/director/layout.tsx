@@ -4,6 +4,7 @@ import { getSession } from "@/lib/auth/session";
 
 const directorNav = [
   { href: "/director", label: "대시보드" },
+  { href: "/director/research", label: "연구·발표 관리" },
   { href: "/director/profile", label: "내 사진" },
   { href: "/director/managers", label: "본부장 관리" },
   { href: "/director/owners", label: "원장 관리" },

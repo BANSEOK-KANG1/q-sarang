@@ -43,6 +43,9 @@ export default async function PaperPage({
                 <div><dt>대상</dt><dd>{paper.subject}</dd></div>
                 <div><dt>읽기</dt><dd>{paper.year} · {paper.readTime}</dd></div>
               </dl>
+              <a href={paper.sourceUrl} target="_blank" rel="noreferrer">
+                PubMed에서 원문 정보 확인 <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
           <div className="paper-detail__tags">
@@ -57,11 +60,6 @@ export default async function PaperPage({
             <a href="#points">우리가 얻는 인사이트</a>
             <a href="#method">논문의 접근법</a>
             <a href="#limits">한계와 질문</a>
-            <a href="#speaker-note">발표자 노트</a>
-            <Link href={`/paper/${paper.slug}/presentation`} className="paper-toc__presentation">
-              <span>▶</span>
-              발표 모드
-            </Link>
           </aside>
 
           <article className="paper-article">
@@ -153,19 +151,19 @@ export default async function PaperPage({
               </div>
             </section>
 
-            <section id="speaker-note" className="speaker-note">
+            <section className="public-note">
               <div>
-                <p className="paper-section-label">발표자 노트</p>
-                <h2>5장의 슬라이드로<br />이 논문을 설명해 보세요.</h2>
+                <p className="paper-section-label">읽기 전 확인</p>
+                <h2>이 글은 연구를<br />쉽게 풀어쓴 공개 요약입니다.</h2>
               </div>
               <div>
                 <p>
-                  연구 질문, 근거 수준, 대상과 방법, 핵심 결과, 해석 한계까지
-                  발표 흐름을 자동으로 구성해 두었습니다.
+                  제품의 효능이나 질병의 예방·치료를 주장하지 않습니다.
+                  건강에 관한 결정은 논문 요약만으로 내리지 말고 전문가와 상의해 주세요.
                 </p>
-                <Link href={`/paper/${paper.slug}/presentation`}>
-                  발표 모드 시작 <span aria-hidden="true">↗</span>
-                </Link>
+                <a href={paper.sourceUrl} target="_blank" rel="noreferrer">
+                  원문 정보 확인 <span aria-hidden="true">↗</span>
+                </a>
               </div>
             </section>
           </article>

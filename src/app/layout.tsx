@@ -4,7 +4,7 @@ import "./globals.css";
 
 const siteTitle = "O-LOVE · 제왕충초 연구 아카이브";
 const siteDescription =
-  "Cordyceps militaris와 코디세핀 논문을 근거 수준, 연구 방법, 핵심 결과와 한계로 정리하고 발표 자료로 연결하는 데이터베이스";
+  "Cordyceps militaris와 코디세핀 논문을 근거 수준, 연구 방법, 핵심 결과와 한계로 쉽게 정리한 공개 데이터베이스";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headerStore = await headers();

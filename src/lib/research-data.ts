@@ -1,6 +1,12 @@
 export type ResearchPaper = {
   slug: string;
-  category: "immune" | "fatigue" | "antioxidant" | "metabolism";
+  category:
+    | "immune"
+    | "fatigue"
+    | "antioxidant"
+    | "metabolism"
+    | "sleep"
+    | "circulation";
   categoryKo: string;
   accent: string;
   image: string;
@@ -9,6 +15,7 @@ export type ResearchPaper = {
   titleKo: string;
   authors: string;
   source: string;
+  sourceUrl: string;
   year: string;
   readTime: string;
   difficulty: "입문" | "중급" | "심화";
@@ -48,6 +55,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "제왕충초와 주요 성분은 면역 반응을 어떻게 조절하는가",
     authors: "Eun-Ju Yang 외 6명",
     source: "Phytotherapy Research · PMID 41432716",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/41432716/",
     year: "2026",
     readTime: "11분",
     difficulty: "중급",
@@ -104,6 +112,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "운동 수행과 회복에 관한 현재의 근거는 어디까지인가",
     authors: "Narrative review",
     source: "PubMed · PMID 41829950",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/41829950/",
     year: "2026",
     readTime: "9분",
     difficulty: "중급",
@@ -147,6 +156,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "코디세핀의 항산화 작용과 과도한 운동 후 피로",
     authors: "Preclinical research team",
     source: "PubMed · PMID 40059099",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/40059099/",
     year: "2025",
     readTime: "8분",
     difficulty: "심화",
@@ -189,6 +199,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "제왕충초 다당류의 면역조절 연구를 한눈에",
     authors: "Review authors",
     source: "Molecules · PMID 39519748",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/39519748/",
     year: "2024",
     readTime: "10분",
     difficulty: "심화",
@@ -232,6 +243,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "감염 모델에서 본 제왕충초 추출물의 면역 반응",
     authors: "Preclinical research team",
     source: "Insects · PMID 39590481",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/39590481/",
     year: "2024",
     readTime: "7분",
     difficulty: "심화",
@@ -274,6 +286,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "코디세핀과 피로 관련 경로: TIGAR/SIRT1/PGC-1α",
     authors: "Preclinical research team",
     source: "PubMed · PMID 36399798",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/36399798/",
     year: "2022",
     readTime: "9분",
     difficulty: "심화",
@@ -308,7 +321,7 @@ export const papers: ResearchPaper[] = [
   {
     slug: "cordycepin-systematic-review",
     category: "metabolism",
-    categoryKo: "대사",
+    categoryKo: "대사·흡수",
     accent: "#9f7656",
     image: "/research/cordyceps-botanical.webp",
     eyebrow: "체계적 문헌고찰",
@@ -316,6 +329,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "코디세핀 생물학적 효과: 체계적 문헌고찰",
     authors: "Systematic review team",
     source: "Molecules · PMID 34641429",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/34641429/",
     year: "2021",
     readTime: "12분",
     difficulty: "심화",
@@ -359,6 +373,7 @@ export const papers: ResearchPaper[] = [
     titleKo: "세포 에너지 생산과 운동 수행: 동물 연구",
     authors: "Preclinical research team",
     source: "PubMed · PMID 33312018",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/33312018/",
     year: "2020",
     readTime: "8분",
     difficulty: "중급",
@@ -390,8 +405,271 @@ export const papers: ResearchPaper[] = [
     presentationReady: false,
     progress: 55,
   },
+  {
+    slug: "cordyceps-exercise-human-trial",
+    category: "fatigue",
+    categoryKo: "피로·운동",
+    accent: "#e19352",
+    image: "/research/cordyceps-botanical.webp",
+    eyebrow: "사람 대상 무작위 연구",
+    title:
+      "Cordyceps militaris Improves Tolerance to High Intensity Exercise After Acute and Chronic Supplementation",
+    titleKo: "제왕충초 함유 혼합물과 고강도 운동 수행: 사람 연구",
+    authors: "Hirsch 외 연구진",
+    source: "Journal of Dietary Supplements · PMID 27408987",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/27408987/",
+    year: "2016",
+    readTime: "8분",
+    difficulty: "중급",
+    evidenceCode: "B",
+    evidenceLabel: "사람 대상 무작위 연구",
+    studyType: "이중눈가림·위약대조 반복측정 연구",
+    subject: "건강한 성인 28명 · 제왕충초 함유 버섯 혼합물",
+    thesis:
+      "건강한 성인을 대상으로 제왕충초가 들어간 버섯 혼합물 섭취 전후의 고강도 운동 지표를 위약과 비교했다.",
+    abstract:
+      "연구는 1주 섭취 뒤 전체 참여자를, 추가 3주 섭취 뒤 일부 참여자를 다시 평가했습니다. 일부 운동 지표의 변화 가능성을 보여주지만, 표본이 작고 ‘정제 코디세핀’이나 ‘제왕충초 단독’ 연구가 아니라는 점이 해석의 핵심입니다.",
+    keywords: ["사람 연구", "무작위", "운동 수행", "버섯 혼합물"],
+    keyPoints: [
+      { number: "01", title: "사람에게 직접 시험했다", body: "동물 모델이 아니라 건강한 성인의 운동 반응을 비교했습니다." },
+      { number: "02", title: "단독 성분 연구는 아니다", body: "제왕충초가 포함된 혼합물이라 어떤 성분이 결과에 기여했는지 분리하기 어렵습니다." },
+      { number: "03", title: "규모가 작다", body: "장기 섭취 분석은 더 적은 참여자로 진행돼 재현 연구가 필요합니다." },
+    ],
+    method: [
+      { label: "대상", value: "성인 28명", note: "건강한 참여자" },
+      { label: "설계", value: "무작위·위약대조", note: "반복측정 이중눈가림" },
+      { label: "개입", value: "버섯 혼합물", note: "제왕충초 함유, 코디세핀 단독 아님" },
+      { label: "결과", value: "VO₂max · 수행시간", note: "고강도 운동 관련 지표" },
+    ],
+    limitation:
+      "표본이 작고 보충제가 혼합 제형입니다. 일부 참여자만 장기 섭취를 완료했으므로 코디세핀 자체의 효능이나 일반인의 일상적 피로 개선으로 확대할 수 없습니다.",
+    question:
+      "혼합 제품 연구를 설명할 때 성분별 기여도를 모른다는 사실을 얼마나 앞부분에 밝혀야 할까?",
+    quote: "사람 연구라는 강점보다 먼저, 무엇을 얼마나 섭취했는지를 확인해야 한다.",
+    presentationReady: true,
+    progress: 100,
+  },
+  {
+    slug: "cordyceps-sleep-negative-trial",
+    category: "sleep",
+    categoryKo: "수면·사람 연구",
+    accent: "#8d7e76",
+    image: "/research/cordycepin-abstract.webp",
+    eyebrow: "효과가 확인되지 않은 연구",
+    title:
+      "Cordyceps militaris Was Ineffective in the Treatment of Sleep Disturbance in Patients With Major Depressive Disorder",
+    titleKo: "수면장애 무작위 연구에서 효과가 확인되지 않은 제왕충초",
+    authors: "Li 외 연구진",
+    source: "Frontiers in Psychiatry · PMID 34858228",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/34858228/",
+    year: "2021",
+    readTime: "8분",
+    difficulty: "입문",
+    evidenceCode: "B",
+    evidenceLabel: "사람 대상 무작위 연구",
+    studyType: "6주 이중눈가림·위약대조 임상시험",
+    subject: "수면장애가 있는 주요우울장애 환자 59명",
+    thesis:
+      "표준 치료에 제왕충초를 추가한 군과 위약군을 비교했지만, 6주 뒤 수면 개선의 뚜렷한 차이는 확인되지 않았다.",
+    abstract:
+      "이 연구는 긍정적 결과만큼 중요한 ‘차이가 없었던 결과’를 보여줍니다. 특정 환자군과 치료 조건에서 진행됐으므로 모든 수면 문제에 대한 결론은 아니지만, 제왕충초가 언제나 도움이 된다는 식의 해석을 경계하게 합니다.",
+    keywords: ["사람 연구", "수면", "무작위", "부정적 결과"],
+    keyPoints: [
+      { number: "01", title: "차이가 확인되지 않았다", body: "주요 수면 지표에서 제왕충초 추가군의 우월성이 나타나지 않았습니다." },
+      { number: "02", title: "특정 환자군 연구다", body: "주요우울장애 치료를 받는 환자를 대상으로 한 결과입니다." },
+      { number: "03", title: "부정적 결과도 근거다", body: "효과가 없었던 조건을 함께 기록해야 전체 근거가 왜곡되지 않습니다." },
+    ],
+    method: [
+      { label: "대상", value: "환자 59명", note: "주요우울장애와 수면장애" },
+      { label: "설계", value: "무작위·위약대조", note: "6주 이중눈가림" },
+      { label: "개입", value: "표준치료 + 제왕충초", note: "위약 추가군과 비교" },
+      { label: "결과", value: "수면 지표", note: "군 간 뚜렷한 개선 차이 없음" },
+    ],
+    limitation:
+      "특정 정신건강 환자군과 병용 치료 조건의 연구입니다. 표본과 기간이 제한적이며 건강한 사람의 수면이나 다른 제형에 그대로 적용할 수 없습니다.",
+    question:
+      "효과가 나타나지 않은 논문을 데이터베이스 전면에 함께 보여주는 것이 왜 중요한가?",
+    quote: "좋은 데이터베이스는 기대한 답뿐 아니라, 차이가 없었던 조건도 보존한다.",
+    presentationReady: true,
+    progress: 100,
+  },
+  {
+    slug: "cordyceps-immune-healthy-adults",
+    category: "immune",
+    categoryKo: "면역",
+    accent: "#cb7445",
+    image: "/research/cordyceps-hero.webp",
+    eyebrow: "사람 대상 면역 연구",
+    title:
+      "The Immune-Enhancing Effects of Cordyceps militaris in Healthy Korean Men",
+    titleKo: "건강한 성인에서 관찰한 제왕충초와 면역 지표",
+    authors: "Kang 외 연구진",
+    source: "Journal of Medicinal Food · PMID 26284906",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/26284906/",
+    year: "2015",
+    readTime: "8분",
+    difficulty: "중급",
+    evidenceCode: "B",
+    evidenceLabel: "사람 대상 무작위 연구",
+    studyType: "4주 이중눈가림·위약대조 연구",
+    subject: "건강한 한국 성인 · 제왕충초 캡슐",
+    thesis:
+      "건강한 성인이 제왕충초 캡슐을 4주간 섭취했을 때 자연살해세포 활성 등 일부 면역 지표의 변화를 위약군과 비교했다.",
+    abstract:
+      "이 논문은 감염 예방이나 질병 치료를 측정한 연구가 아니라 혈액의 면역 관련 지표를 본 연구입니다. 사람 연구라는 점은 중요하지만, 생체지표의 변화와 실제 건강 결과는 같은 의미가 아닙니다.",
+    keywords: ["사람 연구", "면역 지표", "NK 세포", "위약대조"],
+    keyPoints: [
+      { number: "01", title: "건강 결과가 아닌 지표다", body: "질병 발생보다 혈액 내 면역 관련 수치를 평가했습니다." },
+      { number: "02", title: "위약과 비교했다", body: "무작위 배정과 눈가림을 사용해 비교의 신뢰도를 높였습니다." },
+      { number: "03", title: "제품 조건이 중요하다", body: "연구 제형과 용량이 다른 제품에 같은 결과를 기대할 수 없습니다." },
+    ],
+    method: [
+      { label: "대상", value: "건강한 성인", note: "한국인 참여자" },
+      { label: "설계", value: "무작위·위약대조", note: "4주 이중눈가림" },
+      { label: "개입", value: "제왕충초 캡슐", note: "정해진 용량으로 섭취" },
+      { label: "결과", value: "면역 생체지표", note: "NK 세포 활성 등" },
+    ],
+    limitation:
+      "면역 지표 변화가 감염 감소나 질병 예방을 의미하지는 않습니다. 대상과 기간이 제한적이며 연구 제형을 다른 제품이나 코디세핀 단독에 적용할 수 없습니다.",
+    question:
+      "‘면역 지표가 변했다’를 ‘면역력이 좋아졌다’로 바꾸지 않으려면 어떤 표현이 필요할까?",
+    quote: "생체지표의 변화는 건강 효과를 추정하는 단서이지, 건강 효과 그 자체가 아니다.",
+    presentationReady: true,
+    progress: 100,
+  },
+  {
+    slug: "cordycepin-bioavailability-review",
+    category: "metabolism",
+    categoryKo: "대사·흡수",
+    accent: "#9c765c",
+    image: "/research/cordycepin-abstract.webp",
+    eyebrow: "흡수와 전달의 한계",
+    title:
+      "Cordycepin: A review of strategies to improve the bioavailability and efficacy",
+    titleKo: "코디세핀은 몸 안에서 얼마나 오래 남는가",
+    authors: "Deng 외 연구진",
+    source: "Phytotherapy Research · PMID 37329165",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/37329165/",
+    year: "2023",
+    readTime: "11분",
+    difficulty: "심화",
+    evidenceCode: "F",
+    evidenceLabel: "리뷰 논문",
+    studyType: "코디세핀 생체이용률·전달 전략 검토",
+    subject: "코디세핀의 분해·흡수·약물전달",
+    thesis:
+      "코디세핀은 체내 효소에 의해 빠르게 대사될 수 있어, 실험실에서 보인 작용이 실제 섭취 효과로 이어지는 과정에 큰 장벽이 있다.",
+    abstract:
+      "이 리뷰는 코디세핀의 낮은 생체이용률 문제와 이를 보완하려는 효소 억제, 유도체, 전달체 연구를 정리합니다. ‘세포에서 작용했다’와 ‘먹었을 때 유효 농도에 도달한다’ 사이를 이해하는 핵심 자료입니다.",
+    keywords: ["코디세핀", "생체이용률", "대사", "약물전달"],
+    keyPoints: [
+      { number: "01", title: "빠른 분해가 장벽이다", body: "체내 대사 효소가 코디세핀의 유지 시간과 농도에 영향을 줍니다." },
+      { number: "02", title: "실험 농도와 섭취는 다르다", body: "세포 연구의 농도가 경구 섭취 뒤 몸에서 그대로 재현된다고 볼 수 없습니다." },
+      { number: "03", title: "전달 기술은 연구 중이다", body: "유도체와 전달체는 가능성을 높이려는 전략이지 완성된 임상 해답이 아닙니다." },
+    ],
+    method: [
+      { label: "유형", value: "서술적 리뷰", note: "약동학·전달 연구 종합" },
+      { label: "문제", value: "빠른 대사", note: "생체이용률 저하 가능성" },
+      { label: "전략", value: "억제제 · 유도체", note: "약물전달체 포함" },
+      { label: "의미", value: "번역 가능성", note: "전임상에서 사람으로 가는 간격" },
+    ],
+    limitation:
+      "생체이용률을 높이는 기술 다수는 전임상 단계입니다. 전달 전략의 가능성이 일반 식품이나 기존 제품의 효능을 증명하지 않습니다.",
+    question:
+      "효능 연구를 소개할 때 실제 흡수와 대사 정보를 어디까지 함께 보여줘야 할까?",
+    quote: "몸속에 도달하는 양을 모르면, 실험실의 강한 반응만으로 섭취 효과를 말할 수 없다.",
+    presentationReady: true,
+    progress: 100,
+  },
+  {
+    slug: "cordycepin-rat-pharmacokinetics",
+    category: "metabolism",
+    categoryKo: "대사·흡수",
+    accent: "#a8906a",
+    image: "/research/cordyceps-botanical.webp",
+    eyebrow: "약동학 동물 연구",
+    title:
+      "Pharmacokinetic studies of adenosine and cordycepin, active components of Cordyceps sinensis in rat",
+    titleKo: "쥐에서 추적한 코디세핀의 흡수와 소실",
+    authors: "Tsai 외 연구진",
+    source: "Journal of Agricultural and Food Chemistry · PMID 20302371",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/20302371/",
+    year: "2010",
+    readTime: "7분",
+    difficulty: "심화",
+    evidenceCode: "C",
+    evidenceLabel: "동물 약동학 연구",
+    studyType: "쥐 혈중 농도·대사 추적",
+    subject: "아데노신·코디세핀",
+    thesis:
+      "쥐에서 코디세핀의 혈중 농도를 시간에 따라 추적해 빠른 소실과 대사 억제 조건의 차이를 관찰했다.",
+    abstract:
+      "연구는 어떤 생리 작용보다 ‘투여한 성분이 몸 안에서 어떻게 사라지는가’를 측정했습니다. 오래된 전임상 연구지만, 코디세핀 효능 자료를 읽을 때 흡수와 대사를 별도 질문으로 확인해야 하는 이유를 보여줍니다.",
+    keywords: ["약동학", "혈중 농도", "코디세핀", "동물 연구"],
+    keyPoints: [
+      { number: "01", title: "시간에 따른 농도를 봤다", body: "투여 뒤 혈중 농도와 소실 속도를 추적했습니다." },
+      { number: "02", title: "대사 억제 조건을 비교했다", body: "효소 억제제가 코디세핀의 대사 양상에 미치는 영향을 살폈습니다." },
+      { number: "03", title: "사람 용량은 알 수 없다", body: "쥐의 약동학을 사람의 섭취량이나 효과로 직접 환산할 수 없습니다." },
+    ],
+    method: [
+      { label: "대상", value: "실험용 쥐", note: "사람 연구 아님" },
+      { label: "물질", value: "코디세핀", note: "아데노신과 함께 평가" },
+      { label: "측정", value: "혈중 농도", note: "시간별 약동학 분석" },
+      { label: "비교", value: "대사 억제 조건", note: "효소 억제제 병용" },
+    ],
+    limitation:
+      "동물의 대사 속도와 경로는 사람과 다를 수 있습니다. 투여 방식도 일반적인 식품 섭취와 다르므로 임상 효능이나 안전 용량을 알려주지 않습니다.",
+    question:
+      "효능보다 먼저 체내 농도를 설명하면 독자가 연구를 더 정확하게 해석할 수 있을까?",
+    quote: "작용 가능성과 실제 노출량은 서로 다른 데이터다.",
+    presentationReady: false,
+    progress: 70,
+  },
+  {
+    slug: "cordycepin-human-platelets-in-vitro",
+    category: "circulation",
+    categoryKo: "순환·혈소판",
+    accent: "#b96755",
+    image: "/research/cordycepin-abstract.webp",
+    eyebrow: "사람 유래 세포 연구",
+    title:
+      "Cordycepin inhibits human platelet aggregation in a cAMP- and cGMP-dependent manner",
+    titleKo: "사람 혈소판 시험관 연구에서 본 코디세핀",
+    authors: "Cho 외 연구진",
+    source: "European Journal of Pharmacology · PMID 17229422",
+    sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/17229422/",
+    year: "2007",
+    readTime: "7분",
+    difficulty: "심화",
+    evidenceCode: "D",
+    evidenceLabel: "사람 유래 세포 연구",
+    studyType: "분리한 사람 혈소판 시험관 실험",
+    subject: "사람 혈소판·코디세핀",
+    thesis:
+      "사람에게 코디세핀을 먹인 연구가 아니라, 분리한 사람 혈소판에 코디세핀을 직접 처리해 응집과 신호 변화를 관찰했다.",
+    abstract:
+      "‘human platelet’이라는 표현 때문에 임상시험처럼 보일 수 있지만 실제로는 시험관 연구입니다. 코디세핀의 가능한 작용 경로를 탐색하는 데 의미가 있으나, 출혈 위험이나 심혈관 효과를 사람에게서 확인한 자료는 아닙니다.",
+    keywords: ["혈소판", "시험관", "코디세핀", "응집"],
+    keyPoints: [
+      { number: "01", title: "사람 연구가 아니다", body: "사람 몸 안이 아니라 채취·분리한 혈소판에 직접 성분을 처리했습니다." },
+      { number: "02", title: "작용 경로를 탐색했다", body: "응집 반응과 세포 내 신호 변화를 함께 관찰했습니다." },
+      { number: "03", title: "임상 의미는 미확인이다", body: "섭취 뒤 같은 농도와 반응이 나타나는지는 알 수 없습니다." },
+    ],
+    method: [
+      { label: "재료", value: "사람 혈소판", note: "체외에서 분리" },
+      { label: "개입", value: "코디세핀 직접 처리", note: "여러 실험 농도" },
+      { label: "결과", value: "혈소판 응집", note: "신호 전달 지표 포함" },
+      { label: "단계", value: "시험관 연구", note: "임상시험 아님" },
+    ],
+    limitation:
+      "시험관 농도와 경구 섭취 뒤 혈중 농도는 다릅니다. 이 논문으로 심혈관 질환 예방·치료나 약물 병용 안전성을 판단할 수 없습니다.",
+    question:
+      "논문 제목에 ‘human’이 있어도 사람 대상 임상시험이 아닐 수 있다는 점을 어떻게 가장 쉽게 보여줄까?",
+    quote: "사람에게서 얻은 세포와 사람에게 투여한 연구는 같은 근거가 아니다.",
+    presentationReady: false,
+    progress: 60,
+  },
 ];
 
 export const getPaper = (slug: string) =>
   papers.find((paper) => paper.slug === slug);
-
