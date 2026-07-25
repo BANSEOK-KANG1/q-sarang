@@ -1,10 +1,6 @@
-import { redirect } from "next/navigation";
-import { getSession } from "@/lib/auth/session";
+import ResearchHome from "@/components/ResearchHome";
 
-export default async function HomePage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
-  if (session.role === "director") redirect("/director");
-  if (session.role === "manager") redirect("/manager");
-  redirect("/owner");
+export default function HomePage() {
+  return <ResearchHome />;
 }
+
