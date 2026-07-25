@@ -38,8 +38,10 @@ export default async function PaperPage({
               <dl>
                 <div><dt>저자</dt><dd>{paper.authors}</dd></div>
                 <div><dt>출처</dt><dd>{paper.source}</dd></div>
-                <div><dt>발행</dt><dd>{paper.year}</dd></div>
-                <div><dt>읽기</dt><dd>{paper.readTime} · {paper.difficulty}</dd></div>
+                <div><dt>근거</dt><dd>{paper.evidenceCode} · {paper.evidenceLabel}</dd></div>
+                <div><dt>설계</dt><dd>{paper.studyType}</dd></div>
+                <div><dt>대상</dt><dd>{paper.subject}</dd></div>
+                <div><dt>읽기</dt><dd>{paper.year} · {paper.readTime}</dd></div>
               </dl>
             </div>
           </div>
@@ -52,8 +54,8 @@ export default async function PaperPage({
           <aside className="paper-toc">
             <p>이 글의 순서</p>
             <a href="#summary">3문장 요약</a>
-            <a href="#points">핵심 발견</a>
-            <a href="#method">연구 방법</a>
+            <a href="#points">우리가 얻는 인사이트</a>
+            <a href="#method">논문의 접근법</a>
             <a href="#limits">한계와 질문</a>
             <a href="#speaker-note">발표자 노트</a>
             <Link href={`/paper/${paper.slug}/presentation`} className="paper-toc__presentation">
@@ -63,11 +65,23 @@ export default async function PaperPage({
           </aside>
 
           <article className="paper-article">
+            <div className="paper-evidence-card">
+              <span>{paper.evidenceCode}</span>
+              <div>
+                <p>이 논문의 근거 수준</p>
+                <strong>{paper.evidenceLabel}</strong>
+              </div>
+              <p>
+                {paper.studyType}. 등급은 연구의 좋고 나쁨이 아니라,
+                이 결과를 어디까지 설명할 수 있는지 보여줍니다.
+              </p>
+            </div>
+
             <section id="summary" className="paper-summary">
               <p className="paper-section-number">01</p>
               <div>
                 <p className="paper-section-label">3문장 요약</p>
-                <h2>먼저, 이것만 알고 가세요.</h2>
+                <h2>초록보다 먼저, 이것만 알고 가세요.</h2>
                 <p className="paper-summary__lead">{paper.thesis}</p>
                 <p>{paper.abstract}</p>
               </div>
@@ -82,8 +96,8 @@ export default async function PaperPage({
               <div className="paper-content-section__head">
                 <p className="paper-section-number">02</p>
                 <div>
-                  <p className="paper-section-label">핵심 발견</p>
-                  <h2>무엇이 달라졌을까요?</h2>
+                  <p className="paper-section-label">우리가 얻는 인사이트</p>
+                  <h2>이 논문을 통해 무엇을 배울까요?</h2>
                 </div>
               </div>
               <div className="key-point-list">
@@ -101,8 +115,8 @@ export default async function PaperPage({
               <div className="paper-content-section__head">
                 <p className="paper-section-number">03</p>
                 <div>
-                  <p className="paper-section-label">연구 방법</p>
-                  <h2>주장을 어떻게 확인했을까요?</h2>
+                  <p className="paper-section-label">논문의 접근법</p>
+                  <h2>이 질문에 어떻게 접근했을까요?</h2>
                 </div>
               </div>
               <div className="method-flow">
@@ -146,7 +160,7 @@ export default async function PaperPage({
               </div>
               <div>
                 <p>
-                  핵심 질문, 기존 방식의 한계, 새로운 접근, 결과, 토론 질문까지
+                  연구 질문, 근거 수준, 대상과 방법, 핵심 결과, 해석 한계까지
                   발표 흐름을 자동으로 구성해 두었습니다.
                 </p>
                 <Link href={`/paper/${paper.slug}/presentation`}>

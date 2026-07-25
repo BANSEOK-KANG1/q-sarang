@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
-import { papers } from "@/lib/research-data";
+import { evidenceGuide, papers } from "@/lib/research-data";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 
-const categories = ["전체", "인공지능", "HCI", "생명과학", "심리학"];
+const categories = ["전체", "면역", "피로·운동", "항산화·에너지", "대사"];
 
 export default function ResearchHome() {
   const [activeCategory, setActiveCategory] = useState("전체");
@@ -23,6 +24,8 @@ export default function ResearchHome() {
           paper.titleKo,
           paper.authors,
           paper.categoryKo,
+          paper.studyType,
+          paper.evidenceLabel,
           ...paper.keywords,
         ]
           .join(" ")
@@ -43,21 +46,23 @@ export default function ResearchHome() {
           <div className="research-hero__copy">
             <p className="research-kicker">
               <span />
-              O-LOVE Research Note
+              Cordyceps militaris · Evidence archive
             </p>
             <h1>
-              논문을 읽고,
+              제왕충초 연구를 읽고,
               <br />
-              <em>내 언어로</em> 설명하다.
+              <em>근거의 단계까지</em>
+              <br />
+              설명하다.
             </h1>
             <p className="research-hero__description">
-              복잡한 연구를 핵심 질문부터 한계까지 차근히 해석합니다.
+              PubMed·Europe PMC 논문을 연구 설계와 근거 수준부터 차근히 해석합니다.
               <br className="desktop-only" />
-              읽는 데서 멈추지 않고, 누군가에게 설명할 수 있을 때까지.
+              제품 효능으로 과장하지 않고, 사람들 앞에서 설명할 수 있을 때까지.
             </p>
             <div className="research-hero__actions">
               <Link href="#library" className="research-button research-button--dark">
-                논문 둘러보기 <span aria-hidden="true">↓</span>
+                연구 데이터베이스 <span aria-hidden="true">↓</span>
               </Link>
               <Link
                 href={`/paper/${featured.slug}/presentation`}
@@ -68,31 +73,31 @@ export default function ResearchHome() {
             </div>
           </div>
 
-          <div className="research-hero__visual" aria-label="논문 정리 과정">
-            <div className="orbit orbit--outer" />
-            <div className="orbit orbit--inner" />
-            <div className="research-hero__center">
-              <span>?</span>
-              <strong>질문에서<br />이해까지</strong>
-            </div>
-            <span className="orbit-label orbit-label--one">READ</span>
-            <span className="orbit-label orbit-label--two">CONNECT</span>
-            <span className="orbit-label orbit-label--three">EXPLAIN</span>
-            <div className="orbit-dot orbit-dot--one" />
-            <div className="orbit-dot orbit-dot--two" />
-          </div>
+          <figure className="research-hero__visual" aria-label="Cordyceps militaris 제왕충초">
+            <Image
+              src="/research/cordyceps-hero.webp"
+              alt="Cordyceps militaris 자실체 클로즈업"
+              fill
+              priority
+              sizes="(max-width: 760px) 90vw, 42vw"
+            />
+            <figcaption>
+              <span>CORDYCEPS MILITARIS</span>
+              <p>이름을 정확히 쓰는 것에서<br />연구 해석이 시작됩니다.</p>
+            </figcaption>
+          </figure>
         </section>
 
         <section className="research-statement">
-          <p>한 편을 읽더라도</p>
+          <p>한 편의 논문이 발표 자료가 되기까지</p>
           <div>
-            <span>핵심 주장</span>
+            <span>연구 질문</span>
             <i>→</i>
-            <span>근거와 방법</span>
+            <span>근거 수준</span>
             <i>→</i>
-            <span>한계와 질문</span>
+            <span>결과와 한계</span>
             <i>→</i>
-            <span className="highlight">나의 설명</span>
+            <span className="highlight">5장 발표</span>
           </div>
         </section>
 
@@ -103,7 +108,7 @@ export default function ResearchHome() {
           </div>
           <div className="featured-paper__main">
             <div>
-              <p className="featured-paper__eyebrow">{featured.eyebrow}</p>
+              <p className="featured-paper__eyebrow">{featured.eyebrow} · {featured.evidenceCode} 등급</p>
               <h2>{featured.titleKo}</h2>
               <p className="featured-paper__title-en">{featured.title}</p>
             </div>
@@ -111,8 +116,8 @@ export default function ResearchHome() {
               <p>{featured.thesis}</p>
               <div className="featured-paper__facts">
                 <span>{featured.year}</span>
-                <span>{featured.readTime} 읽기</span>
-                <span>난이도 {featured.difficulty}</span>
+                <span>{featured.evidenceLabel}</span>
+                <span>{featured.studyType}</span>
               </div>
               <Link href={`/paper/${featured.slug}`} className="research-round-link">
                 정리 읽기 <span aria-hidden="true">↗</span>
@@ -125,11 +130,48 @@ export default function ResearchHome() {
           </div>
         </section>
 
+        <section className="evidence-dashboard" id="evidence">
+          <div className="evidence-dashboard__intro">
+            <p className="research-section-label">02 · EVIDENCE MAP</p>
+            <h2>제목보다 먼저,<br />근거의 단계를 봅니다.</h2>
+            <p>
+              같은 ‘제왕충초 연구’라도 사람·동물·세포·리뷰는 서로 다른 질문에 답합니다.
+              등급은 좋고 나쁨이 아니라, 어디까지 말할 수 있는지를 보여주는 안내입니다.
+            </p>
+          </div>
+          <div className="evidence-dashboard__stats">
+            <div><strong>18</strong><span>수집 논문</span><small>자동 갱신 데이터 기준</small></div>
+            <div><strong>4</strong><span>핵심 주제</span><small>면역 · 피로 · 항산화 · 대사</small></div>
+            <div><strong>5</strong><span>발표 준비</span><small>슬라이드로 바로 열기</small></div>
+          </div>
+          <div className="evidence-guide">
+            {evidenceGuide.map((item) => (
+              <div key={item.code}>
+                <strong>{item.code}</strong>
+                <span>{item.label}</span>
+                <small>{item.note}</small>
+              </div>
+            ))}
+          </div>
+          <div className="source-network">
+            <div>
+              <p className="research-section-label">SOURCE COVERAGE</p>
+              <strong>한 곳의 번역 결과가 아니라,<br />여러 학술 데이터로 교차 확인합니다.</strong>
+            </div>
+            <ul>
+              <li><span>01</span><strong>PubMed</strong><small>PMID · 초록 · 의생명 문헌</small></li>
+              <li><span>02</span><strong>Europe PMC</strong><small>오픈액세스 원문 · Figure</small></li>
+              <li><span>03</span><strong>OpenAlex</strong><small>인용 · 개념 · 연구 연결망</small></li>
+              <li><span>04</span><strong>Crossref</strong><small>DOI · 저널 · 출판 메타데이터</small></li>
+            </ul>
+          </div>
+        </section>
+
         <section className="research-library" id="library">
           <div className="research-section-head">
             <div>
-              <p className="research-section-label">02 · RESEARCH LIBRARY</p>
-              <h2>천천히 읽고,<br />선명하게 남긴 논문들</h2>
+              <p className="research-section-label">03 · RESEARCH DATABASE</p>
+              <h2>주제와 근거 수준으로<br />찾는 제왕충초 논문</h2>
             </div>
             <div className="research-search">
               <label htmlFor="paper-search">논문 검색</label>
@@ -139,7 +181,7 @@ export default function ResearchHome() {
                   id="paper-search"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="제목, 저자, 키워드 검색"
+                  placeholder="제목, 성분, 연구 설계 검색"
                 />
               </div>
             </div>
@@ -166,21 +208,21 @@ export default function ResearchHome() {
                     className="paper-card__cover"
                     style={{ "--paper-accent": paper.accent } as React.CSSProperties}
                   >
+                    <Image
+                      src={paper.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 25vw"
+                    />
                     <div className="paper-card__cover-top">
                       <span>O.{String(index + 1).padStart(2, "0")}</span>
-                      <span>{paper.categoryKo}</span>
-                    </div>
-                    <div className="paper-card__symbol" aria-hidden="true">
-                      {paper.category === "AI" && <span className="symbol-grid">✦</span>}
-                      {paper.category === "Biology" && <span className="symbol-cell">●</span>}
-                      {paper.category === "HCI" && <span className="symbol-wave">∿</span>}
-                      {paper.category === "Psychology" && <span className="symbol-choice">Y</span>}
+                      <span>{paper.evidenceCode} · {paper.evidenceLabel}</span>
                     </div>
                     <p>{paper.title}</p>
                   </div>
                   <div className="paper-card__body">
                     <div className="paper-card__meta">
-                      <span>{paper.source}</span>
+                      <span>{paper.categoryKo} · {paper.studyType}</span>
                       <span>{paper.year}</span>
                     </div>
                     <h3>{paper.titleKo}</h3>
@@ -205,16 +247,16 @@ export default function ResearchHome() {
 
         <section className="presentation-section" id="presentation">
           <div className="presentation-section__copy">
-            <p className="research-section-label">03 · FROM PAPER TO STAGE</p>
+              <p className="research-section-label">04 · FROM PAPER TO STAGE</p>
             <h2>읽은 내용을<br />발표의 언어로 바꾸세요.</h2>
             <p>
-              논문 정리의 마지막은 ‘내가 이해했다’가 아니라
-              ‘다른 사람이 이해하도록 설명했다’입니다.
+              논문 정리의 마지막은 ‘효과가 있다’는 문장이 아니라,
+              어떤 연구에서 무엇을 관찰했는지 설명하는 것입니다.
             </p>
             <ol className="presentation-steps">
-              <li><span>01</span><strong>한 문장 주장</strong><p>논문의 결론을 20자로 압축합니다.</p></li>
-              <li><span>02</span><strong>근거의 흐름</strong><p>문제–방법–결과를 하나의 서사로 잇습니다.</p></li>
-              <li><span>03</span><strong>질문과 한계</strong><p>청중이 함께 생각할 여백을 남깁니다.</p></li>
+              <li><span>01</span><strong>연구 질문</strong><p>이 논문이 실제로 답한 질문만 남깁니다.</p></li>
+              <li><span>02</span><strong>근거의 범위</strong><p>사람·동물·세포·리뷰를 먼저 밝힙니다.</p></li>
+              <li><span>03</span><strong>결과와 한계</strong><p>관찰된 것과 말할 수 없는 것을 함께 보여줍니다.</p></li>
             </ol>
             <Link href={`/paper/${featured.slug}/presentation`} className="research-button research-button--light">
               발표 모드 열기 <span aria-hidden="true">↗</span>
@@ -229,13 +271,13 @@ export default function ResearchHome() {
             <div className="presentation-preview__slide">
               <div className="preview-slide__number">01 / 05</div>
               <p className="preview-slide__label">THE CORE QUESTION</p>
-              <h3>서로 다른 생명 분자의<br />만남도 예측할 수 있을까?</h3>
+              <h3>제왕충초 면역 연구는<br />어디까지 말할 수 있을까?</h3>
               <div className="preview-slide__diagram">
-                <span>PROTEIN</span>
+                <span>REVIEW</span>
                 <i>+</i>
-                <span>DNA · RNA</span>
+                <span>ANIMAL</span>
                 <i>+</i>
-                <span>LIGAND</span>
+                <span>HUMAN</span>
               </div>
               <p className="preview-slide__note">Space 또는 → 키로 넘기기</p>
             </div>

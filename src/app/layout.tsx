@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const siteTitle = "O-LOVE Research · 질문에서 이해까지";
+const siteTitle = "O-LOVE · 제왕충초 연구 아카이브";
 const siteDescription =
-  "복잡한 논문을 핵심 주장, 연구 방법, 한계와 질문으로 해석하고 발표의 언어로 정리하는 연구 아카이브";
+  "Cordyceps militaris와 코디세핀 논문을 근거 수준, 연구 방법, 핵심 결과와 한계로 정리하고 발표 자료로 연결하는 데이터베이스";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headerStore = await headers();
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${baseUrl}/og.png`,
           width: 1200,
           height: 630,
-          alt: "O-LOVE Research — 논문을 읽고, 내 언어로 설명하다.",
+          alt: "O-LOVE — 제왕충초 연구를 읽고, 근거의 단계까지 설명하다.",
         },
       ],
     },
@@ -48,7 +48,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#7e287f",
+  themeColor: "#15100d",
 };
 
 export default function RootLayout({

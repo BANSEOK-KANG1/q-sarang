@@ -21,14 +21,14 @@ export default function PresentationMode({ paper }: { paper: ResearchPaper }) {
       type: "thesis",
     },
     {
-      label: "THREE FINDINGS",
-      title: "이 논문이 바꾼 세 가지",
+      label: "THREE INSIGHTS",
+      title: "우리가 얻는 세 가지 인사이트",
       body: paper.keyPoints,
       type: "points",
     },
     {
-      label: "HOW IT WORKS",
-      title: "연구의 흐름",
+      label: "RESEARCH APPROACH",
+      title: "논문의 접근법",
       body: paper.method,
       type: "method",
     },

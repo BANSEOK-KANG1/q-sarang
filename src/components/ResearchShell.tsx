@@ -7,7 +7,7 @@ export function ResearchHeader({ compact = false }: { compact?: boolean }) {
       <Link href="/" className="research-brand" aria-label="O-LOVE 홈">
         <span className="research-brand__logo-frame">
           <Image
-            src="/olove-logo.png"
+            src="/olove-logo-transparent.png"
             alt="O-LOVE"
             width={570}
             height={222}
@@ -15,10 +15,11 @@ export function ResearchHeader({ compact = false }: { compact?: boolean }) {
             className="research-brand__logo"
           />
         </span>
+        <span className="research-brand__sub">큐사랑 · 제왕충초 연구 아카이브</span>
       </Link>
       <nav className="research-nav" aria-label="주요 메뉴">
-        <Link href="/#library">논문 아카이브</Link>
-        <Link href="/#topics">주제별 탐색</Link>
+        <Link href="/#library">연구 데이터베이스</Link>
+        <Link href="/#evidence">근거 수준</Link>
         <Link href="/#presentation">발표 노트</Link>
       </nav>
       <Link href="/#library" className="research-header__cta">
@@ -34,10 +35,10 @@ export function ResearchFooter() {
     <footer className="research-footer">
       <div>
         <p className="research-footer__brand">O-LOVE</p>
-        <p>질문을 사랑하는 사람들의 논문 아카이브</p>
+        <p>큐사랑 · 제왕충초 연구 아카이브</p>
       </div>
       <p className="research-footer__note">
-        읽은 것을 이해하고,<br />이해한 것을 설명할 수 있도록.
+        논문을 과장 없이 읽고,<br />근거의 단계까지 설명할 수 있도록.
       </p>
       <div className="research-footer__links">
         <Link href="/#library">아카이브</Link>
