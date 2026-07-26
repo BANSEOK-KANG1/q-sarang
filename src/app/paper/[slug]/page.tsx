@@ -79,7 +79,7 @@ export default async function PaperPage({
               <p className="paper-section-number">01</p>
               <div>
                 <p className="paper-section-label">할머니도 읽는 논문 요약</p>
-                <h2>어려운 초록 대신, 이것부터 읽어보세요.</h2>
+                <h2>복잡한 연구 내용, 핵심부터 쉽게 살펴보세요.</h2>
                 <p className="paper-summary__lead">{paper.thesis}</p>
                 <p>{paper.abstract}</p>
               </div>
