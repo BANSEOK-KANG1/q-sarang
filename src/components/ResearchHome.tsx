@@ -22,25 +22,27 @@ export default function ResearchHome() {
 
   const filteredPapers = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return papers.filter((paper) => {
-      const matchesCategory =
-        activeCategory === "전체" || paper.categoryKo === activeCategory;
-      const matchesQuery =
-        !normalized ||
-        [
-          paper.title,
-          paper.titleKo,
-          paper.authors,
-          paper.categoryKo,
-          paper.studyType,
-          paper.evidenceLabel,
-          ...paper.keywords,
-        ]
-          .join(" ")
-          .toLowerCase()
-          .includes(normalized);
-      return matchesCategory && matchesQuery;
-    });
+    return papers
+      .filter((paper) => {
+        const matchesCategory =
+          activeCategory === "전체" || paper.categoryKo === activeCategory;
+        const matchesQuery =
+          !normalized ||
+          [
+            paper.title,
+            paper.titleKo,
+            paper.authors,
+            paper.categoryKo,
+            paper.studyType,
+            paper.evidenceLabel,
+            ...paper.keywords,
+          ]
+            .join(" ")
+            .toLowerCase()
+            .includes(normalized);
+        return matchesCategory && matchesQuery;
+      })
+      .sort((a, b) => Number(b.year) - Number(a.year));
   }, [activeCategory, query]);
 
   const featured = papers[0];
@@ -60,11 +62,11 @@ export default function ResearchHome() {
               Cordyceps militaris · Evidence archive
             </p>
             <h1>
-              코디세핀 연구를,
+              코디세핀 연구를
               <br />
-              <em>누구나 쉽게 읽고</em>
+              <em>쉽게 읽고</em>
               <br />
-              정확히 이해하다.
+              정확히 말하다.
             </h1>
             <p className="research-hero__description">
               어려운 초록을 그대로 옮기지 않고, 무엇을 누구에게 연구했는지부터 풀어씁니다.
@@ -200,6 +202,15 @@ export default function ResearchHome() {
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="제목, 성분, 연구 설계 검색"
                 />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    aria-label="검색어 지우기"
+                  >
+                    지우기
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -216,6 +227,11 @@ export default function ResearchHome() {
               </button>
             ))}
           </div>
+
+          <p className="research-result-count">
+            {activeCategory === "전체" ? "전체 주제" : activeCategory} ·{" "}
+            <strong>{filteredPapers.length}편</strong>
+          </p>
 
           <div className="paper-grid" aria-live="polite">
             {filteredPapers.map((paper, index) => (
