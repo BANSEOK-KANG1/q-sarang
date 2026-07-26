@@ -60,16 +60,19 @@ export default function ResearchHome() {
               Cordyceps militaris · Evidence archive
             </p>
             <h1>
-              제왕충초 연구를 읽고,
+              코디세핀 연구를,
               <br />
-              <em>근거의 단계까지</em>
+              <em>누구나 쉽게 읽고</em>
               <br />
-              설명하다.
+              정확히 이해하다.
             </h1>
             <p className="research-hero__description">
-              코디세핀의 가능성을 다룬 논문을 연구 설계와 근거 수준부터 쉽게 해석합니다.
+              어려운 초록을 그대로 옮기지 않고, 무엇을 누구에게 연구했는지부터 풀어씁니다.
               <br className="desktop-only" />
-              긍정적 결과와 한계, 효과가 확인되지 않은 연구까지 함께 보여드립니다.
+              기대되는 가능성뿐 아니라 한계와 효과가 확인되지 않은 결과도 함께 보여드립니다.
+            </p>
+            <p className="research-hero__promise">
+              교육용 공개 자료 · 제품 효능이나 치료 효과를 주장하지 않습니다
             </p>
             <div className="research-hero__actions">
               <Link href="#library" className="research-button research-button--dark">
@@ -136,7 +139,7 @@ export default function ResearchHome() {
             </div>
           </div>
           <div className="featured-paper__insight">
-            <span>한 문장으로</span>
+            <span>쉽게 말하면</span>
             <p>“{featured.quote}”</p>
           </div>
         </section>
@@ -182,7 +185,10 @@ export default function ResearchHome() {
           <div className="research-section-head">
             <div>
               <p className="research-section-label">03 · RESEARCH DATABASE</p>
-              <h2>주제와 근거 수준으로<br />찾는 제왕충초 논문</h2>
+            <h2>주제와 근거 수준으로<br />찾는 제왕충초 논문</h2>
+            <p className="research-library__intro">
+              코디세핀을 중심으로 사람·동물·세포·리뷰 논문을 한 형식으로 비교합니다.
+            </p>
             </div>
             <div className="research-search">
               <label htmlFor="paper-search">논문 검색</label>

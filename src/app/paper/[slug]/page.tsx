@@ -55,11 +55,11 @@ export default async function PaperPage({
 
         <div className="paper-detail__layout">
           <aside className="paper-toc">
-            <p>이 글의 순서</p>
-            <a href="#summary">3문장 요약</a>
-            <a href="#points">우리가 얻는 인사이트</a>
-            <a href="#method">논문의 접근법</a>
-            <a href="#limits">한계와 질문</a>
+            <p>쉽게 읽는 순서</p>
+            <a href="#summary">한눈에 보는 요약</a>
+            <a href="#points">세 가지 핵심</a>
+            <a href="#method">연구는 어떻게 했나</a>
+            <a href="#limits">어디까지 말할 수 있나</a>
           </aside>
 
           <article className="paper-article">
@@ -78,8 +78,8 @@ export default async function PaperPage({
             <section id="summary" className="paper-summary">
               <p className="paper-section-number">01</p>
               <div>
-                <p className="paper-section-label">3문장 요약</p>
-                <h2>초록보다 먼저, 이것만 알고 가세요.</h2>
+                <p className="paper-section-label">할머니도 읽는 논문 요약</p>
+                <h2>어려운 초록 대신, 이것부터 읽어보세요.</h2>
                 <p className="paper-summary__lead">{paper.thesis}</p>
                 <p>{paper.abstract}</p>
               </div>
@@ -94,8 +94,8 @@ export default async function PaperPage({
               <div className="paper-content-section__head">
                 <p className="paper-section-number">02</p>
                 <div>
-                  <p className="paper-section-label">우리가 얻는 인사이트</p>
-                  <h2>이 논문을 통해 무엇을 배울까요?</h2>
+                  <p className="paper-section-label">세 가지 핵심</p>
+                  <h2>이 논문에서 기억할 내용</h2>
                 </div>
               </div>
               <div className="key-point-list">
@@ -113,8 +113,8 @@ export default async function PaperPage({
               <div className="paper-content-section__head">
                 <p className="paper-section-number">03</p>
                 <div>
-                  <p className="paper-section-label">논문의 접근법</p>
-                  <h2>이 질문에 어떻게 접근했을까요?</h2>
+                  <p className="paper-section-label">연구 방법</p>
+                  <h2>누구에게 무엇을 시험했을까요?</h2>
                 </div>
               </div>
               <div className="method-flow">
@@ -133,8 +133,8 @@ export default async function PaperPage({
               <div className="paper-content-section__head">
                 <p className="paper-section-number">04</p>
                 <div>
-                  <p className="paper-section-label">한계와 질문</p>
-                  <h2>논문 밖에서 다시 생각하기</h2>
+                  <p className="paper-section-label">과장하지 않는 읽기</p>
+                  <h2>어디까지 말할 수 있을까요?</h2>
                 </div>
               </div>
               <div className="limits-grid">
