@@ -1,0 +1,53 @@
+{
+  "version": "2026-09-recovery",
+  "status": "copy-applied-images-awaiting-manual-file-selection",
+  "lastAttemptedAt": "2026-09-08",
+  "blocker": "Naver Basicinfo iframe and Remocon title controls are reachable, but their OS file chooser does not open through browser automation. Three prepared assets require only manual file selection, followed by Apply/Confirm and public visual verification.",
+  "blogId": "q_love_soul",
+  "blogName": "큐사랑 Q-LOVE | 염색방·헤어컬러",
+  "profileImage": "/Users/kangbanseok/q-sarang/public/blog/q-sarang-profile-hair-v2.png",
+  "desktopBanner": "/Users/kangbanseok/q-sarang/public/blog/q-sarang-naver-banner-hair-v3.png",
+  "mobileCover": "/Users/kangbanseok/q-sarang/public/blog/q-sarang-mobile-cover-hair-v2.png",
+  "assetDimensions": {
+    "profileImage": "512x512",
+    "desktopBanner": "966x400",
+    "mobileCover": "887x1774"
+  },
+  "profileCopyFile": "/Users/kangbanseok/q-sarang/content/marketing/profile-and-menu-copy.md",
+  "profileSummary": "큐사랑 Q-LOVE가 새치·뿌리염색과 두피·모발 관리 정보를 알기 쉽게 정리합니다. 처음 방문 안내, 염색방 교육·창업 정보, 제왕충초 연구·상품 자료를 목적별로 확인하세요.",
+  "startupContactLabel": "염색방·매장 창업 상담",
+  "startupContacts": ["010-3312-0175", "010-9630-2486"],
+  "themeColors": {
+    "deepPlum": "#35143F",
+    "mutedLavender": "#A987C7",
+    "warmIvory": "#F6F0E7",
+    "charcoal": "#2A272B"
+  },
+  "categoryOrder": ["염색방", "게시판"],
+  "noticeOrder": [
+    {
+      "role": "start-here-routing-hub",
+      "logNo": "224360799511",
+      "title": "큐사랑 처음 오셨다면, 염색·창업·상품 자료 안내",
+      "draftFile": "/Users/kangbanseok/q-sarang/content/seo/recovery-drafts/00-start-here.md",
+      "imageMetaFile": "/Users/kangbanseok/q-sarang/content/seo/recovery-assets/start-here-v2/meta.json"
+    },
+    {
+      "role": "startup-inquiry",
+      "logNo": "224360781082",
+      "title": "염색방 창업 상담 전 교육·비용·계약 질문 7가지"
+    },
+    {
+      "role": "product-inquiry",
+      "logNo": "224360536630",
+      "title": "큐사랑 제왕충초 문의 전 라벨과 연구를 구분하는 법"
+    }
+  ],
+  "verification": [
+    "프로필 이미지가 모바일과 데스크톱에서 식별되는지 확인",
+    "데스크톱 배너 글자가 잘리지 않는지 확인",
+    "모바일 커버의 인물과 텍스트 영역이 프로필에 가리지 않는지 확인",
+    "프로필의 전화번호가 고객 예약이 아니라 창업 상담용으로 표시되는지 확인",
+    "공지 세 편이 고객 창업 상품 순서로 보이는지 확인"
+  ]
+}

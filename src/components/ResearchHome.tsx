@@ -8,6 +8,13 @@ import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import { NAVER_PRODUCT_HUB_URL } from "@/lib/site";
 import { softBreakKo } from "@/lib/typography";
 
+const evidenceCollectionPath: Record<string, string> = {
+  B: "/evidence/human-studies",
+  C: "/evidence/preclinical-studies",
+  D: "/evidence/preclinical-studies",
+  F: "/evidence/reviews",
+};
+
 const categories = [
   "전체",
   "면역",
@@ -159,7 +166,7 @@ export default function ResearchHome() {
               <div>
                 <strong>근거 단계를 먼저 구분</strong>
                 <p>사람·동물·세포·리뷰가 답하는 질문의 범위를 확인합니다.</p>
-                <Link href="#evidence">근거 지도 보기 <i aria-hidden="true">↓</i></Link>
+                <Link href="/evidence">근거 지도 보기 <i aria-hidden="true">↗</i></Link>
               </div>
             </li>
             <li>
@@ -241,11 +248,12 @@ export default function ResearchHome() {
           </div>
           <div className="evidence-guide">
             {evidenceGuide.map((item) => (
-              <div key={item.code}>
+              <Link href={evidenceCollectionPath[item.code]} key={item.code}>
                 <strong>{item.code}</strong>
                 <span>{item.label}</span>
                 <small>{item.note}</small>
-              </div>
+                <i aria-hidden="true">↗</i>
+              </Link>
             ))}
           </div>
           <div className="source-network">

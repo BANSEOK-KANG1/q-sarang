@@ -1,0 +1,89 @@
+{
+  "blogId": "q_love_soul",
+  "checkedAt": "2026-09-08T04:56:00+09:00",
+  "status": "completed-with-five-future-link-cards-deferred-until-publication",
+  "requiresApproval": false,
+  "approvalConfirmedAt": "2026-09-08T05:44:00+09:00",
+  "completedAt": "2026-09-08T06:00:00+09:00",
+  "approvalPhrase": "공지 순서 조정, 9월 신규 5편 오후 2시 예약, 기존 핵심 글 링크·문구와 헤어라인 카드 수정 승인",
+  "resultSummary": {
+    "noticeOrder": "completed and publicly verified",
+    "scheduledPosts": "five posts scheduled and verified",
+    "existingImmediateLinksAndCopy": "completed and publicly verified",
+    "hairlineCardNews": "five-card replacement completed and publicly verified",
+    "futureScheduledPostLinkCards": "deferred because Naver does not resolve link-preview metadata before a scheduled post is public"
+  },
+  "readOnlyEvidence": {
+    "publicTitle": "큐사랑 염색방·헤어컬러",
+    "profileStartupContactsPresent": true,
+    "categoryNames": ["게시판", "염색방"],
+    "currentNoticeOrder": [
+      "큐사랑 제왕충초 문의 전 라벨과 연구를 구분하는 법",
+      "염색방 창업 상담 전 교육·비용·계약 질문 7가지",
+      "큐사랑 처음 오셨다면, 염색·창업·상품 자료 안내"
+    ],
+    "recommendedNoticeOrder": [
+      "큐사랑 처음 오셨다면, 염색·창업·상품 자료 안내",
+      "염색방 창업 상담 전 교육·비용·계약 질문 7가지",
+      "큐사랑 제왕충초 문의 전 라벨과 연구를 구분하는 법"
+    ],
+    "publicPostCount": 26,
+    "neighborCount": 0,
+    "sendCount": 0,
+    "scrapCount": 0,
+    "realtimePageviews": 0,
+    "realtimeSearchVisits": 0,
+    "baselinePageviews2026_09_01_to_07": 6,
+    "baselineDailyAverage": 0.86
+  },
+  "approvedActionsWhenConfirmed": [
+    {
+      "order": 1,
+      "operation": "reorder-notices",
+      "target": "public notice list",
+      "desiredOrder": ["start-here", "startup", "product"],
+      "verification": ["public order", "notice badges", "all three URLs unchanged"]
+    },
+    {
+      "order": 2,
+      "operation": "schedule-five-posts",
+      "manifest": "content/seo/pending-publish-manifest-2026-09.json",
+      "verification": ["title", "body", "five cards", "PDF", "category", "tags", "public", "search allowed", "14:00"]
+    },
+    {
+      "order": 3,
+      "operation": "patch-three-existing-posts",
+      "manifest": "content/seo/existing-post-internal-link-patch-queue-2026-09.json",
+      "targets": ["224362486616", "224361404223", "224364553732"],
+      "verification": ["clickable internal links", "three exact particle corrections", "unchanged titles and URLs", "no customer-post phone numbers", "product classification points to product hub"]
+    },
+    {
+      "order": 4,
+      "operation": "replace-hairline-card-news",
+      "target": "224371088862",
+      "manifest": "content/seo/recovery-assets/hairline-gray-v2/meta.json",
+      "verification": ["five images", "01 to 05 order", "1122x1402", "exact AI disclosure", "mobile legibility"]
+    }
+  ],
+  "manualUserActions": [
+    {
+      "operation": "select-profile-file",
+      "file": "public/blog/q-sarang-profile-hair-v2.png"
+    },
+    {
+      "operation": "select-desktop-banner-file",
+      "file": "public/blog/q-sarang-naver-banner-hair-v3.png"
+    },
+    {
+      "operation": "select-mobile-cover-file",
+      "file": "public/blog/q-sarang-mobile-cover-hair-v2.png"
+    }
+  ],
+  "notAuthorized": [
+    "public notice changes before approval",
+    "typing or uploading scheduled posts before approval",
+    "editing existing internal links or replacing public images before approval",
+    "posting to external social accounts before confirmation",
+    "inventing a 0507 number, branch address, price, booking link, testimonial or local keyword"
+  ]
+}

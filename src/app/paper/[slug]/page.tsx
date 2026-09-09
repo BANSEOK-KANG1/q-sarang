@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import { ResearchShareActions } from "@/components/ResearchShareActions";
 import { getPaper, papers } from "@/lib/research-data";
+import { getEvidenceCollectionForCode } from "@/lib/evidence-collections";
 import {
   absoluteSiteUrl,
   NAVER_BLOG_URL,
@@ -68,6 +69,8 @@ export default async function PaperPage({
   const { slug } = await params;
   const paper = getPaper(slug);
   if (!paper) notFound();
+
+  const evidenceCollection = getEvidenceCollectionForCode(paper.evidenceCode);
 
   const canonicalUrl = absoluteSiteUrl(`/paper/${paper.slug}`);
   const jsonLd = {
@@ -139,7 +142,12 @@ export default async function PaperPage({
           style={{ "--paper-accent": paper.accent } as React.CSSProperties}
         >
           <div className="paper-detail__breadcrumb">
-            <Link href="/">아카이브</Link><span>/</span><span>{paper.categoryKo}</span>
+            <Link href="/">아카이브</Link><span>/</span><Link href="/evidence">근거 수준</Link><span>/</span>
+            {evidenceCollection ? (
+              <Link href={`/evidence/${evidenceCollection.slug}`}>{evidenceCollection.label}</Link>
+            ) : (
+              <span>{paper.categoryKo}</span>
+            )}
           </div>
           <div className="paper-detail__hero-grid">
             <div>
