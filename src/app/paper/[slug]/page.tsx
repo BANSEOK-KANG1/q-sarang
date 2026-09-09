@@ -5,7 +5,9 @@ import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import { getPaper, papers } from "@/lib/research-data";
 import {
   absoluteSiteUrl,
+  NAVER_BLOG_URL,
   NAVER_PRODUCT_HUB_URL,
+  SITE_BRAND_NAME,
 } from "@/lib/site";
 import { softBreakKo } from "@/lib/typography";
 
@@ -80,8 +82,19 @@ export default async function PaperPage({
     keywords: paper.keywords.join(", "),
     citation: paper.sourceUrl,
     isBasedOn: paper.sourceUrl,
-    author: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
-    publisher: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
+    author: {
+      "@type": "Organization",
+      name: SITE_BRAND_NAME,
+      url: absoluteSiteUrl("/"),
+      sameAs: NAVER_BLOG_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_BRAND_NAME,
+      url: absoluteSiteUrl("/"),
+      logo: absoluteSiteUrl("/q-love-logo-transparent-v2.png"),
+      sameAs: NAVER_BLOG_URL,
+    },
     educationalUse: "연구 근거 수준을 구분하는 공개 논문 요약",
   };
 

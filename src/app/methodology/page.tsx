@@ -3,7 +3,9 @@ import Link from "next/link";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import {
   absoluteSiteUrl,
+  NAVER_BLOG_URL,
   NAVER_PRODUCT_HUB_URL,
+  SITE_BRAND_NAME,
 } from "@/lib/site";
 
 const title = "제왕충초·코디세핀 연구를 읽는 기준";
@@ -71,7 +73,13 @@ export default function MethodologyPage() {
       { "@type": "Thing", name: "코디세핀" },
       { "@type": "Thing", name: "근거 수준" },
     ],
-    publisher: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_BRAND_NAME,
+      url: absoluteSiteUrl("/"),
+      logo: absoluteSiteUrl("/q-love-logo-transparent-v2.png"),
+      sameAs: NAVER_BLOG_URL,
+    },
   };
 
   return (

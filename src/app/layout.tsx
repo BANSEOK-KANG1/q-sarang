@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
+import {
+  SITE_BRAND_NAME,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/site";
 import "./globals.css";
 
 const sans = Noto_Sans_KR({
@@ -40,9 +45,9 @@ export const metadata: Metadata = {
     "코디세핀",
     "제왕충초 논문",
   ],
-  authors: [{ name: "큐사랑 Q-LOVE" }],
-  creator: "큐사랑 Q-LOVE",
-  publisher: "큐사랑 Q-LOVE",
+  authors: [{ name: SITE_BRAND_NAME }],
+  creator: SITE_BRAND_NAME,
+  publisher: SITE_BRAND_NAME,
   verification: {
     google: "JEqqxV8G3PC-5OR_EMPfeKWuFPVKjP0Hj3BcU9xrE1c",
     other: {
