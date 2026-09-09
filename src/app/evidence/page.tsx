@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     url: "/evidence",
     title,
     description,
-    images: [{ url: "/og-q-love.png", alt: "Q-LOVE 제왕충초 연구 근거 수준 안내" }],
+    images: [{ url: "/og/evidence-hub.png", width: 1200, height: 630, alt: "Q-LOVE 제왕충초 연구 근거 수준 안내" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-q-love.png"],
+    images: ["/og/evidence-hub.png"],
   },
 };
 
@@ -38,6 +38,12 @@ export default function EvidenceHubPage() {
     description,
     url: pageUrl,
     inLanguage: "ko-KR",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      contentUrl: absoluteSiteUrl("/og/evidence-hub.png"),
+      width: 1200,
+      height: 630,
+    },
     publisher: {
       "@type": "Organization",
       name: SITE_BRAND_NAME,

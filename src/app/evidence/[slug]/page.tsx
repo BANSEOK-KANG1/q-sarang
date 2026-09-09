@@ -15,6 +15,12 @@ import {
 } from "@/lib/site";
 import { softBreakKo } from "@/lib/typography";
 
+const collectionShareImages = {
+  "human-studies": "/og/evidence-human.png",
+  "preclinical-studies": "/og/evidence-preclinical.png",
+  reviews: "/og/evidence-reviews.png",
+} as const;
+
 export function generateStaticParams() {
   return evidenceCollections.map((collection) => ({ slug: collection.slug }));
 }
@@ -27,6 +33,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const collection = getEvidenceCollection(slug);
   if (!collection) return { title: "근거 안내를 찾을 수 없습니다", robots: { index: false } };
+  const shareImage = collectionShareImages[collection.slug];
 
   return {
     title: collection.title,
@@ -38,13 +45,13 @@ export async function generateMetadata({
       url: `/evidence/${collection.slug}`,
       title: collection.title,
       description: collection.description,
-      images: [{ url: "/og-q-love.png", alt: collection.title }],
+      images: [{ url: shareImage, width: 1200, height: 630, alt: collection.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: collection.title,
       description: collection.description,
-      images: ["/og-q-love.png"],
+      images: [shareImage],
     },
   };
 }
@@ -62,6 +69,7 @@ export default async function EvidenceCollectionPage({
     collection.evidenceCodes.includes(paper.evidenceCode),
   );
   const canonicalUrl = absoluteSiteUrl(`/evidence/${collection.slug}`);
+  const shareImage = collectionShareImages[collection.slug];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -69,6 +77,12 @@ export default async function EvidenceCollectionPage({
     description: collection.description,
     url: canonicalUrl,
     inLanguage: "ko-KR",
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      contentUrl: absoluteSiteUrl(shareImage),
+      width: 1200,
+      height: 630,
+    },
     publisher: {
       "@type": "Organization",
       name: SITE_BRAND_NAME,

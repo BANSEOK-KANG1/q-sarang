@@ -26,14 +26,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "monthly",
       priority: 0.85,
-      images: [absoluteSiteUrl("/og-q-love.png")],
+      images: [absoluteSiteUrl("/og/evidence-hub.png")],
     },
     ...evidenceCollections.map((collection) => ({
       url: absoluteSiteUrl(`/evidence/${collection.slug}`),
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "monthly" as const,
       priority: 0.82,
-      images: [absoluteSiteUrl("/og-q-love.png")],
+      images: [
+        absoluteSiteUrl(
+          collection.slug === "human-studies"
+            ? "/og/evidence-human.png"
+            : collection.slug === "preclinical-studies"
+              ? "/og/evidence-preclinical.png"
+              : "/og/evidence-reviews.png",
+        ),
+      ],
     })),
     ...papers.map((paper) => ({
       url: absoluteSiteUrl(`/paper/${paper.slug}`),
