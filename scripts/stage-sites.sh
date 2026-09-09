@@ -29,4 +29,13 @@ test -f "$bundle_dir/worker.js"
 rm -rf "$dist_dir"
 mkdir -p "$dist_dir/server" "$dist_dir/client"
 cp -R "$source_dir/assets"/. "$dist_dir/client"/
+
+# Keep previously shared asset URLs working without exposing the retired O-LOVE artwork.
+cp "$root/public/q-love-logo-transparent-v2.png" "$dist_dir/client/olove-logo-transparent.png"
+cp "$root/public/q-love-logo-transparent-v2.png" "$dist_dir/client/olove-logo.png"
+cp "$root/public/og-q-love.png" "$dist_dir/client/og.png"
+cmp "$root/public/q-love-logo-transparent-v2.png" "$dist_dir/client/olove-logo-transparent.png"
+cmp "$root/public/q-love-logo-transparent-v2.png" "$dist_dir/client/olove-logo.png"
+cmp "$root/public/og-q-love.png" "$dist_dir/client/og.png"
+
 cp "$bundle_dir/worker.js" "$dist_dir/server/index.js"
