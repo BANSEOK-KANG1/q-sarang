@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
-    template: "%s · 큐사랑 O-LOVE",
+    template: "%s · 큐사랑 Q-LOVE",
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     "코디세핀",
     "제왕충초 논문",
   ],
-  authors: [{ name: "큐사랑 O-LOVE" }],
-  creator: "큐사랑 O-LOVE",
-  publisher: "큐사랑 O-LOVE",
+  authors: [{ name: "큐사랑 Q-LOVE" }],
+  creator: "큐사랑 Q-LOVE",
+  publisher: "큐사랑 Q-LOVE",
   verification: {
     google: "JEqqxV8G3PC-5OR_EMPfeKWuFPVKjP0Hj3BcU9xrE1c",
     other: {
@@ -59,15 +59,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "/",
-    siteName: "큐사랑 O-LOVE 연구 아카이브",
+    siteName: "큐사랑 Q-LOVE 연구 아카이브",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og.png",
+        url: "/og-q-love.png",
         width: 1200,
         height: 630,
-        alt: "O-LOVE — 제왕충초 연구를 읽고, 근거의 단계까지 설명하다.",
+        alt: "Q-LOVE — 제왕충초 연구를 읽고, 근거의 단계까지 설명하다.",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/og.png"],
+    images: ["/og-q-love.png"],
   },
 };
 

@@ -5,11 +5,11 @@ import { NAVER_PRODUCT_HUB_URL } from "@/lib/site";
 export function ResearchHeader({ compact = false }: { compact?: boolean }) {
   return (
     <header className={`research-header ${compact ? "research-header--compact" : ""}`}>
-      <Link href="/" className="research-brand" aria-label="O-LOVE 홈">
+      <Link href="/" className="research-brand" aria-label="Q-LOVE 홈">
         <span className="research-brand__logo-frame">
           <Image
-            src="/olove-logo-transparent.png"
-            alt="O-LOVE"
+            src="/q-love-logo-transparent-v2.png"
+            alt="Q-LOVE"
             width={570}
             height={222}
             priority
@@ -35,7 +35,7 @@ export function ResearchFooter() {
   return (
     <footer className="research-footer">
       <div>
-        <p className="research-footer__brand">O-LOVE</p>
+        <p className="research-footer__brand">Q-LOVE</p>
         <p>큐사랑 · 제왕충초 연구 아카이브</p>
       </div>
       <p className="research-footer__note">

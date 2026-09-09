@@ -8,7 +8,7 @@ import {
 
 const title = "제왕충초·코디세핀 연구를 읽는 기준";
 const description =
-  "큐사랑 O-LOVE가 제왕충초 원물·추출물·코디세핀·다당류와 사람·동물·세포·리뷰 근거를 구분해 논문을 정리하는 원칙";
+  "큐사랑 Q-LOVE가 제왕충초 원물·추출물·코디세핀·다당류와 사람·동물·세포·리뷰 근거를 구분해 논문을 정리하는 원칙";
 
 export const metadata: Metadata = {
   title,
@@ -71,7 +71,7 @@ export default function MethodologyPage() {
       { "@type": "Thing", name: "코디세핀" },
       { "@type": "Thing", name: "근거 수준" },
     ],
-    publisher: { "@type": "Organization", name: "큐사랑 O-LOVE" },
+    publisher: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
   };
 
   return (
@@ -86,7 +86,7 @@ export default function MethodologyPage() {
 
       <main>
         <section className="methodology-hero">
-          <p className="research-kicker"><span />O-LOVE EDITORIAL POLICY</p>
+          <p className="research-kicker"><span />Q-LOVE EDITORIAL POLICY</p>
           <h1>제왕충초 연구를<br /><em>어디까지 말할 수 있는지</em><br />먼저 확인합니다.</h1>
           <p>
             논문의 긍정적인 문장만 옮기지 않습니다. 무엇을, 누구에게,

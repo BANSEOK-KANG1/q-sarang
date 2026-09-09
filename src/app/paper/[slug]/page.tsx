@@ -80,8 +80,8 @@ export default async function PaperPage({
     keywords: paper.keywords.join(", "),
     citation: paper.sourceUrl,
     isBasedOn: paper.sourceUrl,
-    author: { "@type": "Organization", name: "큐사랑 O-LOVE" },
-    publisher: { "@type": "Organization", name: "큐사랑 O-LOVE" },
+    author: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
+    publisher: { "@type": "Organization", name: "큐사랑 Q-LOVE" },
     educationalUse: "연구 근거 수준을 구분하는 공개 논문 요약",
   };
 
@@ -165,7 +165,7 @@ export default async function PaperPage({
             </section>
 
             <blockquote className="paper-quote">
-              <span>O-LOVE NOTE</span>
+              <span>Q-LOVE NOTE</span>
               <p>“{softBreakKo(paper.quote)}”</p>
             </blockquote>
 

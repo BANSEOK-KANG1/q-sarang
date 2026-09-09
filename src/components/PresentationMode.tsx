@@ -74,7 +74,7 @@ export default function PresentationMode({ paper }: { paper: ResearchPaper }) {
         <Link href={`/paper/${paper.slug}`} className="presentation-mode__exit">
           <span aria-hidden="true">←</span> 정리로 돌아가기
         </Link>
-        <div className="presentation-mode__brand">O-LOVE <span>발표 노트</span></div>
+        <div className="presentation-mode__brand">Q-LOVE <span>발표 노트</span></div>
         <div className="presentation-mode__count">
           {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
         </div>
