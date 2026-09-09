@@ -97,10 +97,11 @@ export default function ResearchHome() {
                 target="_blank"
                 rel="noreferrer"
                 className="research-button research-button--text"
+                data-journey-stage="hero-product-guide"
               >
                 큐사랑 문의 안내 <span aria-hidden="true">↗</span>
               </a>
-                        </div>
+            </div>
           </div>
 
           <figure className="research-hero__visual" aria-label="Cordyceps militaris 제왕충초">
@@ -133,6 +134,58 @@ export default function ResearchHome() {
             <i>→</i>
             <span className="highlight">쉬운 해석</span>
           </div>
+        </section>
+
+        <section
+          className="research-intent-path"
+          id="journey"
+          aria-labelledby="research-intent-path-title"
+        >
+          <div className="research-intent-path__intro">
+            <p className="research-section-label">Q-LOVE RESEARCH JOURNEY</p>
+            <h2 id="research-intent-path-title">
+              찾고 싶은 답에 따라
+              <br />
+              <em>다음 화면을 선택하세요.</em>
+            </h2>
+            <p>
+              검색으로 들어온 뒤 무엇을 봐야 할지 헤매지 않도록 근거 확인부터
+              제품 문의 준비까지 세 단계로 나눴습니다.
+            </p>
+          </div>
+          <ol className="research-intent-path__steps">
+            <li>
+              <span>01</span>
+              <div>
+                <strong>근거 단계를 먼저 구분</strong>
+                <p>사람·동물·세포·리뷰가 답하는 질문의 범위를 확인합니다.</p>
+                <Link href="#evidence">근거 지도 보기 <i aria-hidden="true">↓</i></Link>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <strong>요약과 원문을 함께 확인</strong>
+                <p>연구 대상·관찰 결과·한계를 같은 순서로 비교합니다.</p>
+                <Link href="#library">논문 목록 보기 <i aria-hidden="true">↓</i></Link>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <strong>제품 라벨과 문의를 따로 준비</strong>
+                <p>제품명·원료 표기·확인할 질문을 메모한 뒤 안내를 확인합니다.</p>
+                <a
+                  href={NAVER_PRODUCT_HUB_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-journey-stage="intent-product-guide"
+                >
+                  큐사랑 문의 준비 <i aria-hidden="true">↗</i>
+                </a>
+              </div>
+            </li>
+          </ol>
         </section>
 
         <section className="featured-paper">
@@ -385,9 +438,13 @@ export default function ResearchHome() {
                 target="_blank"
                 rel="noreferrer"
                 className="research-button research-button--light"
+                data-journey-stage="footer-product-guide"
               >
                 제왕충초 문의 안내 보기 <span aria-hidden="true">↗</span>
               </a>
+              <small className="research-next-step__source">
+                문의할 때 “Q-LOVE 연구 아카이브를 봤다”고 말씀해 주세요.
+              </small>
             </div>
           </div>
         </section>

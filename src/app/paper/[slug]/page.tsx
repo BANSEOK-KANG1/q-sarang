@@ -313,9 +313,17 @@ export default async function PaperPage({
                   궁금한 점을 정리하는 확인표가 있습니다. 연구 결과를 제품 효능으로
                   단정하지 않고 문의 목적부터 구분합니다.
                 </p>
-                <a href={NAVER_PRODUCT_HUB_URL} target="_blank" rel="noreferrer">
+                <a
+                  href={NAVER_PRODUCT_HUB_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-journey-stage="paper-product-guide"
+                >
                   큐사랑 제왕충초 문의 안내 <span aria-hidden="true">↗</span>
                 </a>
+                <small className="paper-inquiry__source">
+                  문의할 때 “Q-LOVE 연구 아카이브를 봤다”고 말씀해 주세요.
+                </small>
               </div>
             </section>
           </article>

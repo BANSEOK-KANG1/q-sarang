@@ -19,6 +19,7 @@ export function ResearchHeader({ compact = false }: { compact?: boolean }) {
         <span className="research-brand__sub">큐사랑 · 제왕충초 연구 아카이브</span>
       </Link>
       <nav className="research-nav" aria-label="주요 메뉴">
+        <Link href="/#journey">이용 안내</Link>
         <Link href="/#library">연구 데이터베이스</Link>
         <Link href="/#evidence">근거 수준</Link>
         <Link href="/methodology">연구 원칙</Link>
