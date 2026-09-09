@@ -284,7 +284,7 @@ export default function ResearchHome() {
                       sizes="(max-width: 760px) 100vw, (max-width: 1050px) 50vw, 25vw"
                     />
                     <div className="paper-card__cover-top">
-                      <span>O.{String(index + 1).padStart(2, "0")}</span>
+                      <span>Q.{String(index + 1).padStart(2, "0")}</span>
                       <span>{paper.evidenceCode} · {paper.evidenceLabel}</span>
                     </div>
                     <p>{paper.title}</p>
@@ -367,7 +367,7 @@ export default function ResearchHome() {
         </section>
 
         <section className="research-next-step" aria-labelledby="research-next-step-title">
-          <p className="research-section-label">05 · Q-SARANG GUIDE</p>
+          <p className="research-section-label">05 · Q-LOVE GUIDE</p>
           <div>
             <h2 id="research-next-step-title">
               연구를 읽은 다음은

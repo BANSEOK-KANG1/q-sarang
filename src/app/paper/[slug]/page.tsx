@@ -273,7 +273,7 @@ export default async function PaperPage({
 
             <section className="paper-inquiry" aria-labelledby="paper-inquiry-title">
               <div>
-                <p className="paper-section-label">Q-SARANG NEXT STEP</p>
+                <p className="paper-section-label">Q-LOVE NEXT STEP</p>
                 <h2 id="paper-inquiry-title">
                   제품 문의 전,
                   <br />
