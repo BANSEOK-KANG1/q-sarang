@@ -43,6 +43,9 @@ export const metadata: Metadata = {
   authors: [{ name: "큐사랑 O-LOVE" }],
   creator: "큐사랑 O-LOVE",
   publisher: "큐사랑 O-LOVE",
+  verification: {
+    google: "JEqqxV8G3PC-5OR_EMPfeKWuFPVKjP0Hj3BcU9xrE1c",
+  },
   alternates: { canonical: "/" },
   robots: {
     index: true,
