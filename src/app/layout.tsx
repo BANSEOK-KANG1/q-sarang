@@ -54,7 +54,10 @@ export const metadata: Metadata = {
       "naver-site-verification": "8a538658f4008521811e12cf256ddb4cda731265",
     },
   },
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/feed.xml" },
+  },
   robots: {
     index: true,
     follow: true,

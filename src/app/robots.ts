@@ -14,7 +14,10 @@ export default function robots(): MetadataRoute.Robots {
         "/paper/*/presentation",
       ],
     },
-    sitemap: absoluteSiteUrl("/sitemap.xml"),
+    sitemap: [
+      absoluteSiteUrl("/sitemap.xml"),
+      absoluteSiteUrl("/feed.xml"),
+    ],
     host: SITE_URL,
   };
 }
