@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "build:cloudflare": "opennextjs-cloudflare build",
-    "build:sites": "opennextjs-cloudflare build && bash scripts/stage-sites.sh",
+    "build:sites": "npm run check:brand && opennextjs-cloudflare build && bash scripts/stage-sites.sh",
+    "check:brand": "node scripts/check-public-brand.mjs",
     "preview:cloudflare": "opennextjs-cloudflare preview",
     "start": "next start",
     "lint": "eslint"
