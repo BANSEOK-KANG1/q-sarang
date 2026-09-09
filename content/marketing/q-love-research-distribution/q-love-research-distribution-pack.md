@@ -114,7 +114,7 @@ Constraints: blank product label, no brand logo, no text, no people, no medical 
 ## 외부 실행 승인 문구
 
 ```text
-Q-LOVE 수정본 GitHub main 전송·공개 재배포, 네이버 홈 재수집 1회, Instagram·Threads 연구 카드 배포 승인
+Q-LOVE 수정본 GitHub main 전송·공개 재배포, 네이버 /evidence 재수집 1회, Instagram·Threads 연구 카드 배포 승인
 ```
 
 `qlovechangup` 교차 링크는 별도로 `qlovechangup 내 채널 맞음, 관련 글 1개 교차링크 승인` 확인을 받은 뒤에만 실행한다.

@@ -1,0 +1,41 @@
+{
+  "blogId": "q_love_soul",
+  "createdAt": "2026-09-09T23:20:19+09:00",
+  "status": "pending-until-evidence-page-is-public",
+  "purpose": "Q-LOVE 연구 검색 방문과 네이버 상품 문의 허브를 왕복 연결",
+  "precondition": {
+    "url": "https://olove-research.kangbs2486.chatgpt.site/evidence",
+    "requiredHttpStatus": 200,
+    "requiredPublicTitle": "제왕충초 연구 근거 수준 안내 · 큐사랑 Q-LOVE",
+    "requiredBrand": "큐사랑 Q-LOVE",
+    "requiredShareImage": "https://olove-research.kangbs2486.chatgpt.site/og/evidence-hub.png"
+  },
+  "target": {
+    "logNo": "224360536630",
+    "title": "큐사랑 제왕충초 문의 전 라벨과 연구를 구분하는 법",
+    "url": "https://blog.naver.com/q_love_soul/224360536630",
+    "keepTitle": true,
+    "keepCategory": true,
+    "keepExistingImages": true,
+    "keepExistingPdf": true,
+    "keepContactCode": "BLOG-PROD-01",
+    "keepContacts": ["010-3312-0175", "010-9630-2486"]
+  },
+  "patch": {
+    "insertAfter": "제왕충초와 주요 성분 연구 읽기 링크 카드",
+    "heading": "Q-LOVE 근거 수준 안내",
+    "copy": "사람·동물·세포·리뷰를 먼저 구분하고, 각 유형의 논문 요약을 한곳에서 비교할 수 있습니다.",
+    "linkUrl": "https://olove-research.kangbs2486.chatgpt.site/evidence",
+    "linkPresentation": "클릭 가능한 링크 미리보기 카드 1개",
+    "fallback": "링크 미리보기가 생성되지 않으면 원시 URL을 공개하지 않고 보류"
+  },
+  "verification": [
+    "외부 근거 허브가 로그인 없이 HTTP 200으로 열린다",
+    "링크 미리보기 제목에 Q-LOVE가 정확히 표시된다",
+    "카드 클릭 시 /evidence로 이동한다",
+    "기존 연구 링크 4개와 문의 코드·연락처가 유지된다",
+    "질병 예방·치료 또는 제품 효능 단정 문구가 추가되지 않는다",
+    "공개 수정 뒤 네이버 검색 허용 상태가 유지된다"
+  ],
+  "requiresActionTimeApproval": true
+}
