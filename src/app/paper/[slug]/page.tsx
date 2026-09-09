@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
+import { ResearchShareActions } from "@/components/ResearchShareActions";
 import { getPaper, papers } from "@/lib/research-data";
 import {
   absoluteSiteUrl,
@@ -97,6 +98,24 @@ export default async function PaperPage({
     },
     educationalUse: "연구 근거 수준을 구분하는 공개 논문 요약",
   };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Q-LOVE 연구 아카이브",
+        item: absoluteSiteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: paper.titleKo,
+        item: canonicalUrl,
+      },
+    ],
+  };
 
   return (
     <div className="research-site paper-detail">
@@ -104,6 +123,12 @@ export default async function PaperPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
         }}
       />
       <ResearchHeader compact />
@@ -270,6 +295,8 @@ export default async function PaperPage({
                 </a>
               </div>
             </section>
+
+            <ResearchShareActions title={paper.titleKo} url={canonicalUrl} />
 
             <section className="paper-inquiry" aria-labelledby="paper-inquiry-title">
               <div>
