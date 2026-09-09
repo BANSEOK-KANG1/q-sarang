@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   publisher: "큐사랑 O-LOVE",
   verification: {
     google: "JEqqxV8G3PC-5OR_EMPfeKWuFPVKjP0Hj3BcU9xrE1c",
+    other: {
+      "naver-site-verification": "8a538658f4008521811e12cf256ddb4cda731265",
+    },
   },
   alternates: { canonical: "/" },
   robots: {
