@@ -1,10 +1,60 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import { getPaper, papers } from "@/lib/research-data";
+import {
+  absoluteSiteUrl,
+  NAVER_PRODUCT_HUB_URL,
+} from "@/lib/site";
+import { softBreakKo } from "@/lib/typography";
 
 export function generateStaticParams() {
   return papers.map((paper) => ({ slug: paper.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const paper = getPaper(slug);
+
+  if (!paper) {
+    return {
+      title: "연구 요약을 찾을 수 없습니다",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const canonicalPath = `/paper/${paper.slug}`;
+  const imageUrl = absoluteSiteUrl(paper.image);
+
+  return {
+    title: paper.titleKo,
+    description: paper.thesis,
+    keywords: [
+      "큐사랑",
+      "제왕충초",
+      "Cordyceps militaris",
+      ...paper.keywords,
+    ],
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      type: "article",
+      url: canonicalPath,
+      title: paper.titleKo,
+      description: paper.thesis,
+      images: [{ url: imageUrl, alt: paper.titleKo }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: paper.titleKo,
+      description: paper.thesis,
+      images: [imageUrl],
+    },
+  };
 }
 
 export default async function PaperPage({
@@ -16,8 +66,33 @@ export default async function PaperPage({
   const paper = getPaper(slug);
   if (!paper) notFound();
 
+  const canonicalUrl = absoluteSiteUrl(`/paper/${paper.slug}`);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: paper.titleKo,
+    alternativeHeadline: paper.title,
+    description: paper.thesis,
+    url: canonicalUrl,
+    mainEntityOfPage: canonicalUrl,
+    image: absoluteSiteUrl(paper.image),
+    inLanguage: "ko-KR",
+    keywords: paper.keywords.join(", "),
+    citation: paper.sourceUrl,
+    isBasedOn: paper.sourceUrl,
+    author: { "@type": "Organization", name: "큐사랑 O-LOVE" },
+    publisher: { "@type": "Organization", name: "큐사랑 O-LOVE" },
+    educationalUse: "연구 근거 수준을 구분하는 공개 논문 요약",
+  };
+
   return (
     <div className="research-site paper-detail">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <ResearchHeader compact />
 
       <main>
@@ -31,7 +106,7 @@ export default async function PaperPage({
           <div className="paper-detail__hero-grid">
             <div>
               <p className="research-kicker"><span />{paper.eyebrow}</p>
-              <h1>{paper.titleKo}</h1>
+              <h1>{softBreakKo(paper.titleKo)}</h1>
               <p className="paper-detail__english-title">{paper.title}</p>
             </div>
             <div className="paper-detail__citation">
@@ -79,15 +154,19 @@ export default async function PaperPage({
               <p className="paper-section-number">01</p>
               <div>
                 <p className="paper-section-label">할머니도 읽는 논문 요약</p>
-                <h2>복잡한 연구 내용, 핵심부터 쉽게 살펴보세요.</h2>
-                <p className="paper-summary__lead">{paper.thesis}</p>
-                <p>{paper.abstract}</p>
+                <h2>
+                  복잡한 연구 내용,
+                  <br />
+                  핵심부터 쉽게 살펴보세요.
+                </h2>
+                <p className="paper-summary__lead">{softBreakKo(paper.thesis)}</p>
+                <p>{softBreakKo(paper.abstract)}</p>
               </div>
             </section>
 
             <blockquote className="paper-quote">
               <span>O-LOVE NOTE</span>
-              <p>“{paper.quote}”</p>
+              <p>“{softBreakKo(paper.quote)}”</p>
             </blockquote>
 
             <section id="points" className="paper-content-section">
@@ -95,15 +174,15 @@ export default async function PaperPage({
                 <p className="paper-section-number">02</p>
                 <div>
                   <p className="paper-section-label">세 가지 핵심</p>
-                  <h2>이 논문에서 기억할 내용</h2>
+                  <h2>이 논문에서 <em className="research-heading-em">기억할 내용</em></h2>
                 </div>
               </div>
               <div className="key-point-list">
                 {paper.keyPoints.map((point) => (
                   <div key={point.number}>
                     <span>{point.number}</span>
-                    <h3>{point.title}</h3>
-                    <p>{point.body}</p>
+                    <h3>{softBreakKo(point.title)}</h3>
+                    <p>{softBreakKo(point.body)}</p>
                   </div>
                 ))}
               </div>
@@ -114,7 +193,11 @@ export default async function PaperPage({
                 <p className="paper-section-number">03</p>
                 <div>
                   <p className="paper-section-label">연구 방법</p>
-                  <h2>누구에게 무엇을 시험했을까요?</h2>
+                  <h2>
+                    누구에게
+                    <br />
+                    무엇을 시험했을까요?
+                  </h2>
                 </div>
               </div>
               <div className="method-flow">
@@ -134,19 +217,23 @@ export default async function PaperPage({
                 <p className="paper-section-number">04</p>
                 <div>
                   <p className="paper-section-label">과장하지 않는 읽기</p>
-                  <h2>어디까지 말할 수 있을까요?</h2>
+                  <h2>
+                    어디까지
+                    <br />
+                    말할 수 있을까요?
+                  </h2>
                 </div>
               </div>
               <div className="limits-grid">
                 <div>
                   <span>LIMITATION</span>
-                  <h3>이 결과를 어디까지 믿을 수 있을까?</h3>
-                  <p>{paper.limitation}</p>
+                  <h3>{softBreakKo("이 결과를 어디까지 믿을 수 있을까?")}</h3>
+                  <p>{softBreakKo(paper.limitation)}</p>
                 </div>
                 <div>
                   <span>OPEN QUESTION</span>
-                  <h3>함께 이야기해 볼 질문</h3>
-                  <p>{paper.question}</p>
+                  <h3>{softBreakKo("함께 이야기해 볼 질문")}</h3>
+                  <p>{softBreakKo(paper.question)}</p>
                 </div>
               </div>
             </section>
@@ -154,7 +241,11 @@ export default async function PaperPage({
             <section className="public-note">
               <div>
                 <p className="paper-section-label">읽기 전 확인</p>
-                <h2>이 글은 연구를<br />쉽게 풀어쓴 공개 요약입니다.</h2>
+                <h2>
+                  이 글은 연구를
+                  <br />
+                  쉽게 풀어쓴 공개 요약입니다.
+                </h2>
               </div>
               <div>
                 <p>
@@ -163,6 +254,27 @@ export default async function PaperPage({
                 </p>
                 <a href={paper.sourceUrl} target="_blank" rel="noreferrer">
                   원문 정보 확인 <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </section>
+
+            <section className="paper-inquiry" aria-labelledby="paper-inquiry-title">
+              <div>
+                <p className="paper-section-label">Q-SARANG NEXT STEP</p>
+                <h2 id="paper-inquiry-title">
+                  제품 문의 전,
+                  <br />
+                  라벨과 근거를 나눠 보세요.
+                </h2>
+              </div>
+              <div>
+                <p>
+                  큐사랑 블로그의 제왕충초 문의 안내에는 제품명·원료 표기·
+                  궁금한 점을 정리하는 확인표가 있습니다. 연구 결과를 제품 효능으로
+                  단정하지 않고 문의 목적부터 구분합니다.
+                </p>
+                <a href={NAVER_PRODUCT_HUB_URL} target="_blank" rel="noreferrer">
+                  큐사랑 제왕충초 문의 안내 <span aria-hidden="true">↗</span>
                 </a>
               </div>
             </section>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { NAVER_PRODUCT_HUB_URL } from "@/lib/site";
 
 export function ResearchHeader({ compact = false }: { compact?: boolean }) {
   return (
@@ -20,7 +21,7 @@ export function ResearchHeader({ compact = false }: { compact?: boolean }) {
       <nav className="research-nav" aria-label="주요 메뉴">
         <Link href="/#library">연구 데이터베이스</Link>
         <Link href="/#evidence">근거 수준</Link>
-        <Link href="/#reading-guide">쉽게 읽는 법</Link>
+        <Link href="/methodology">연구 원칙</Link>
       </nav>
       <Link href="/#library" className="research-header__cta">
         읽기 시작
@@ -38,11 +39,16 @@ export function ResearchFooter() {
         <p>큐사랑 · 제왕충초 연구 아카이브</p>
       </div>
       <p className="research-footer__note">
-        논문을 과장 없이 읽고,<br />근거의 단계까지 설명할 수 있도록.
+        논문을 과장 없이 읽고,
+        <br />
+        근거의 단계까지 설명할 수 있도록.
       </p>
       <div className="research-footer__links">
         <Link href="/#library">아카이브</Link>
-        <Link href="/#reading-guide">쉽게 읽는 법</Link>
+        <Link href="/methodology">연구 원칙</Link>
+        <a href={NAVER_PRODUCT_HUB_URL} target="_blank" rel="noreferrer">
+          큐사랑 문의
+        </a>
         <Link href="/login">관리자</Link>
       </div>
     </footer>

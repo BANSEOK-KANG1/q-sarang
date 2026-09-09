@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "build:cloudflare": "opennextjs-cloudflare build",
     "build:sites": "opennextjs-cloudflare build && bash scripts/stage-sites.sh",
     "preview:cloudflare": "opennextjs-cloudflare preview",
