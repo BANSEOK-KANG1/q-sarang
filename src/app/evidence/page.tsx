@@ -3,11 +3,33 @@ import Link from "next/link";
 import { ResearchFooter, ResearchHeader } from "@/components/ResearchShell";
 import { evidenceCollections } from "@/lib/evidence-collections";
 import { papers } from "@/lib/research-data";
-import { absoluteSiteUrl, SITE_BRAND_NAME } from "@/lib/site";
+import {
+  absoluteSiteUrl,
+  NAVER_PRODUCT_HUB_URL,
+  SITE_BRAND_NAME,
+} from "@/lib/site";
 
 const title = "제왕충초 연구 근거 수준 안내";
 const description =
   "큐사랑 Q-LOVE가 제왕충초·코디세핀 연구를 사람 연구, 동물·세포 연구, 리뷰·체계적 고찰로 나눠 해석 범위와 한계를 안내합니다.";
+
+const evidenceFaqs = [
+  {
+    question: "사람 대상 연구라면 제품 효능까지 확인된 건가요?",
+    answer:
+      "아닙니다. 사람 연구도 참여자, 비교군, 기간, 사용한 원료·추출물·제형의 범위 안에서 해석해야 합니다. 논문과 실제 판매 제품이 같은지는 라벨과 공식 표시를 별도로 확인해야 합니다.",
+  },
+  {
+    question: "동물·세포 연구 결과를 사람에게 그대로 적용할 수 있나요?",
+    answer:
+      "그대로 적용할 수 없습니다. 동물과 세포 연구는 기전과 가능성을 탐색하는 단계이며, 실험 용량이나 농도를 사람의 섭취 결과 또는 제품 효과로 바꾸어 말하면 안 됩니다.",
+  },
+  {
+    question: "제왕충초·동충하초·코디세핀은 같은 자료인가요?",
+    answer:
+      "같은 말로 묶어 판단하기 어렵습니다. 종, 원물·추출물, 개별 성분, 제조 방식과 함량이 다를 수 있으므로 논문 재료와 제품 라벨을 각각 확인해야 합니다.",
+  },
+];
 
 export const metadata: Metadata = {
   title,
@@ -119,6 +141,48 @@ export default function EvidenceHubPage() {
             <Link href="/methodology" className="research-button research-button--light">
               전체 연구 원칙 보기 <span aria-hidden="true">↗</span>
             </Link>
+          </div>
+        </section>
+
+        <section className="evidence-faq" aria-labelledby="evidence-faq-title">
+          <div className="evidence-faq__intro">
+            <p className="research-section-label">SEARCH QUESTIONS</p>
+            <h2 id="evidence-faq-title">검색 전에 가장 많이<br />헷갈리는 세 가지</h2>
+            <p>짧은 답을 먼저 확인한 뒤, 필요한 근거 유형으로 이동해 보세요.</p>
+          </div>
+          <div className="evidence-faq__list">
+            {evidenceFaqs.map((faq, index) => (
+              <details key={faq.question} open={index === 0}>
+                <summary><span>{String(index + 1).padStart(2, "0")}</span>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="research-next-step evidence-next-step">
+          <p className="research-section-label">FROM RESEARCH TO QUESTION</p>
+          <div>
+            <h2>연구를 확인했다면<br /><em className="research-heading-em">제품 라벨은 별도로</em> 살펴보세요.</h2>
+            <div>
+              <p>
+                논문에 사용된 원물·추출물·성분과 실제 제품의 원료 표기는 같다고
+                가정할 수 없습니다. 제품명이나 포장 사진, 궁금한 질문 한 가지를
+                준비하면 자료 문의를 더 정확하게 구분할 수 있습니다.
+              </p>
+              <a
+                href={NAVER_PRODUCT_HUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="research-button research-button--light"
+                data-journey-stage="evidence-hub-product-guide"
+              >
+                큐사랑 상품·자료 문의 준비 <span aria-hidden="true">↗</span>
+              </a>
+              <small className="research-next-step__source">
+                연결되는 네이버 안내에서 제품 표시사항과 문의 순서를 확인할 수 있습니다.
+              </small>
+            </div>
           </div>
         </section>
       </main>
