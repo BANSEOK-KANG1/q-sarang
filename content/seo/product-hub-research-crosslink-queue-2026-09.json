@@ -1,8 +1,9 @@
 {
   "blogId": "q_love_soul",
   "createdAt": "2026-09-09T23:20:19+09:00",
-  "status": "ready-for-action-time-approval",
+  "status": "ready-for-naver-preview-check-login-required",
   "preconditionVerifiedAt": "2026-09-10T07:25:46+09:00",
+  "shareTitleVerifiedAt": "2026-09-11T07:05:00+09:00",
   "purpose": "Q-LOVE 연구 검색 방문과 네이버 상품 문의 허브를 왕복 연결",
   "precondition": {
     "url": "https://olove-research.kangbs2486.chatgpt.site/evidence",
