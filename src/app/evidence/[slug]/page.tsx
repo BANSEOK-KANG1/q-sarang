@@ -34,6 +34,7 @@ export async function generateMetadata({
   const collection = getEvidenceCollection(slug);
   if (!collection) return { title: "근거 안내를 찾을 수 없습니다", robots: { index: false } };
   const shareImage = collectionShareImages[collection.slug];
+  const shareTitle = `${collection.title} · 큐사랑 Q-LOVE`;
 
   return {
     title: collection.title,
@@ -43,13 +44,13 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       url: `/evidence/${collection.slug}`,
-      title: collection.title,
+      title: shareTitle,
       description: collection.description,
       images: [{ url: shareImage, width: 1200, height: 630, alt: collection.title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: collection.title,
+      title: shareTitle,
       description: collection.description,
       images: [shareImage],
     },

@@ -10,6 +10,7 @@ import {
 } from "@/lib/site";
 
 const title = "제왕충초 연구 근거 수준 안내";
+const shareTitle = `${title} · 큐사랑 Q-LOVE`;
 const description =
   "큐사랑 Q-LOVE가 제왕충초·코디세핀 연구를 사람 연구, 동물·세포 연구, 리뷰·체계적 고찰로 나눠 해석 범위와 한계를 안내합니다.";
 
@@ -39,13 +40,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/evidence",
-    title,
+    title: shareTitle,
     description,
     images: [{ url: "/og/evidence-hub.png", width: 1200, height: 630, alt: "Q-LOVE 제왕충초 연구 근거 수준 안내" }],
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: shareTitle,
     description,
     images: ["/og/evidence-hub.png"],
   },
