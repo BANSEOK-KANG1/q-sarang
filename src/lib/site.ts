@@ -11,4 +11,10 @@ export const SITE_DESCRIPTION =
 export const NAVER_PRODUCT_HUB_URL =
   "https://blog.naver.com/q_love_soul/224360536630";
 
+export const NAVER_FIRST_VISIT_HUB_URL =
+  "https://blog.naver.com/q_love_soul/224360799511";
+
+export const NAVER_STARTUP_HUB_URL =
+  "https://blog.naver.com/q_love_soul/224360781082";
+
 export const absoluteSiteUrl = (path = "/") => new URL(path, SITE_URL).toString();

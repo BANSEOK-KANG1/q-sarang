@@ -54,13 +54,21 @@ export const metadata: Metadata = {
 
 export default function EvidenceHubPage() {
   const pageUrl = absoluteSiteUrl("/evidence");
+  const websiteId = absoluteSiteUrl("/#website");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": pageUrl,
     name: title,
     description,
     url: pageUrl,
     inLanguage: "ko-KR",
+    isPartOf: { "@id": websiteId },
+    about: [
+      { "@type": "Thing", name: "Cordyceps militaris" },
+      { "@type": "Thing", name: "코디세핀" },
+      { "@type": "Thing", name: "제왕충초 연구 근거 수준" },
+    ],
     primaryImageOfPage: {
       "@type": "ImageObject",
       contentUrl: absoluteSiteUrl("/og/evidence-hub.png"),
@@ -83,6 +91,24 @@ export default function EvidenceHubPage() {
       })),
     },
   };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Q-LOVE 연구 아카이브",
+        item: absoluteSiteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "근거 수준",
+        item: pageUrl,
+      },
+    ],
+  };
 
   return (
     <div className="research-site evidence-hub-page">
@@ -92,16 +118,51 @@ export default function EvidenceHubPage() {
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <ResearchHeader compact />
 
       <main>
         <section className="methodology-hero evidence-page-hero">
+          <div className="paper-detail__breadcrumb">
+            <Link href="/">아카이브</Link><span>/</span><span>근거 수준</span>
+          </div>
           <p className="research-kicker"><span />Q-LOVE EVIDENCE GUIDE</p>
           <h1>제왕충초 연구는<br /><em>대상부터 나눠야</em><br />정확히 읽을 수 있습니다.</h1>
           <p>
             사람에게 직접 살핀 결과인지, 동물·세포에서 가능성을 탐색한 것인지,
             여러 연구를 모은 리뷰인지 먼저 구분해 보세요.
           </p>
+        </section>
+
+        <section className="evidence-intent-router" aria-labelledby="evidence-intent-router-title">
+          <div>
+            <p className="research-section-label">LOOKING FOR PRODUCT INFORMATION?</p>
+            <h2 id="evidence-intent-router-title">제품 라벨·구성·구매 방법을<br />찾고 계신가요?</h2>
+          </div>
+          <div>
+            <p>
+              연구 결과와 실제 판매 제품 정보는 같은 자료가 아닙니다. 제품명이나
+              포장 사진, 확인하려는 항목 한 가지를 준비한 뒤 네이버 안내에서
+              표시사항과 문의 순서를 먼저 확인해 주세요.
+            </p>
+            <a
+              href={NAVER_PRODUCT_HUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="research-button research-button--light"
+              data-journey-stage="evidence-hub-product-guide-top"
+            >
+              제품·자료 문의 준비하기 <span aria-hidden="true">↗</span>
+            </a>
+            <small>
+              질병 예방·치료나 개인별 섭취 판단을 안내하는 경로가 아닙니다.
+            </small>
+          </div>
         </section>
 
         <section className="evidence-landing-grid" aria-label="근거 유형별 안내">

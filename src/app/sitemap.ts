@@ -3,7 +3,7 @@ import { papers } from "@/lib/research-data";
 import { evidenceCollections } from "@/lib/evidence-collections";
 import { absoluteSiteUrl } from "@/lib/site";
 
-const LAST_CONTENT_UPDATE = new Date("2026-09-09T00:00:00+09:00");
+const LAST_CONTENT_UPDATE = new Date("2026-09-14T00:00:00+09:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
